@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dc7a5wixcvv4x"]
+[gd_scene load_steps=10 format=3 uid="uid://dc7a5wixcvv4x"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_b555d"]
 [ext_resource type="Texture2D" uid="uid://dpmkxa2uqq541" path="res://world/spelunky_shop.png" id="2_t1opw"]
 [ext_resource type="Script" path="res://player/Scripts/state_machine.gd" id="3_geupc"]
-[ext_resource type="Script" path="res://player/Scripts/idle.gd" id="4_hjf3x"]
+[ext_resource type="Script" path="res://player/idle.gd" id="4_hjf3x"]
 [ext_resource type="Script" path="res://player/Scripts/walk.gd" id="5_s6wi1"]
+[ext_resource type="Script" path="res://player/jump.gd" id="6_dg0n0"]
+[ext_resource type="Script" path="res://player/fall.gd" id="7_vmbab"]
+[ext_resource type="PackedScene" uid="uid://cq7cgixja67yd" path="res://gun/gun.tscn" id="8_i3uoo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13y1x"]
 size = Vector2(16, 16)
@@ -16,7 +19,7 @@ collision_mask = 4
 platform_floor_layers = 4294967044
 script = ExtResource("1_b555d")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="character" type="Sprite2D" parent="."]
 texture = ExtResource("2_t1opw")
 hframes = 4
 vframes = 5
@@ -31,14 +34,31 @@ one_shot = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_geupc")
-initial_state = NodePath("Idle")
+initial_state = NodePath("IdleState")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk")]
+[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk", "jump", "fall")]
 script = ExtResource("4_hjf3x")
-walk = NodePath("../Walk")
+walk = NodePath("../WalkState")
+jump = NodePath("../Jump")
+fall = NodePath("../fall")
 
-[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle")]
+[node name="WalkState" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle", "jump", "fall")]
 script = ExtResource("5_s6wi1")
-idle = NodePath("../Idle")
+idle = NodePath("../IdleState")
+jump = NodePath("../Jump")
+fall = NodePath("../fall")
+
+[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk", "idle")]
+script = ExtResource("6_dg0n0")
+walk = NodePath("../WalkState")
+idle = NodePath("../IdleState")
+
+[node name="fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk", "idle")]
+script = ExtResource("7_vmbab")
+walk = NodePath("../WalkState")
+idle = NodePath("../IdleState")
+
+[node name="gun" parent="." instance=ExtResource("8_i3uoo")]
+position = Vector2(5, 2)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

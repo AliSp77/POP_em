@@ -16,6 +16,7 @@ func init(player: CharacterBody2D):
 	else: 
 		current_state = States[0]
 	current_state.enter()
+	print(current_state)
 	
 func _unhandled_input(event: InputEvent) -> void:
 	current_state.handle_input(event)
@@ -30,8 +31,7 @@ func _physics_process(delta: float) -> void:
 
 
 func change_state(new_state: State) -> void:
-	print(current_state, " current")
-	print(new_state, " new")
+
 	if current_state == new_state:
 		return
 	current_state.exit()
