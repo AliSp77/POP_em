@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/hit_box.tscn" id="3_514np"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgpo0"]
-size = Vector2(9, 9)
+size = Vector2(14, 14)
 
 [sub_resource type="Animation" id="Animation_nebqo"]
 resource_name = "shoot"
@@ -45,7 +45,6 @@ _data = {
 }
 
 [node name="projectile" type="Node2D"]
-modulate = Color(0.827451, 0.690196, 0, 1)
 script = ExtResource("1_i2rtl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -56,7 +55,8 @@ hframes = 6
 damage = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-1.5, 1.5)
+visible = false
+position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_dgpo0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
