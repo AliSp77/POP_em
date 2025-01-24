@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://bg4txi17he0mk"]
+
+[ext_resource type="Texture2D" uid="uid://cw3oejp7a16ss" path="res://icon.svg" id="1_8avjb"]
+[ext_resource type="Script" path="res://world/enemy.gd" id="2_fwh02"]
+[ext_resource type="PackedScene" uid="uid://bp6hp8jyxrs8m" path="res://gun/hurt_box.tscn" id="3_1ddkb"]
+[ext_resource type="PackedScene" uid="uid://c8iy16j2row0j" path="res://gun/health.tscn" id="4_i2paa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lagsm"]
+size = Vector2(120, 120)
+
+[node name="Enemy" type="Sprite2D"]
+position = Vector2(239, 79)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_8avjb")
+script = ExtResource("2_fwh02")
+
+[node name="HurtBox" parent="." node_paths=PackedStringArray("health") instance=ExtResource("3_1ddkb")]
+health = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-4, 8)
+shape = SubResource("RectangleShape2D_lagsm")
+
+[node name="Health" parent="." instance=ExtResource("4_i2paa")]

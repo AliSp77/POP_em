@@ -6,6 +6,7 @@ var direction : int = 1
 var current_direcion: int = 1
 var move_speed = 200
 @onready var sprite: Sprite2D = $"../../Sprite2D"
+@onready var animation: AnimationPlayer = $"../../Animation"
 
 @export var idle: State
 @export var jump: State
@@ -21,6 +22,7 @@ func update(_delta: float) -> void:
 
 ## Called by the state machine on the engine's physics update tick.
 func physics_update(_delta: float) -> void:
+	
 	direction = Input.get_action_strength("right") - Input.get_action_strength("left")
 	if direction == 0:
 		ChangeState.emit(idle)
@@ -46,12 +48,13 @@ func physics_update(_delta: float) -> void:
 ## Called by the state machine upon changing the active state. The `data` parameter
 ## is a dictionary with arbitrary data the state can use to initialize itself.
 func enter() -> void:
+	animation.play("Run")
 	print("walk")
 
 ## Called by the state machine before changing the active state. Use this function
 ## to clean up the state.
 func exit() -> void:
-	pass
+	animation.stop()
 
 func HandleRotate(ali: int):
 	sprite.flip_h = ali

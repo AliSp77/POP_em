@@ -10,6 +10,8 @@ var current_direcion: int = 1
 @export var jump: State
 @export var fall: State
 
+@onready var animation: AnimationPlayer = $"../../Animation"
+
 ## Called by the state machine when receiving unhandled input events.
 func handle_input(_event: InputEvent) -> void:
 	pass
@@ -38,6 +40,7 @@ func physics_update(_delta: float) -> void:
 ## is a dictionary with arbitrary data the state can use to initialize itself.
 func enter() -> void:
 	player.velocity.x = 0
+	animation.play("idle")
 	print("idle")
 
 ## Called by the state machine before changing the active state. Use this function
