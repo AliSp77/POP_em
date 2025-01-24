@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=4 uid="uid://n1oas22mem4g"]
+[gd_scene load_steps=21 format=4 uid="uid://n1oas22mem4g"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_gir40"]
 [ext_resource type="Texture2D" uid="uid://driyn5hssrbvt" path="res://assets/cp/cp/CP_V1.0.4.png" id="1_wr41b"]
 [ext_resource type="PackedScene" uid="uid://dc7a5wixcvv4x" path="res://player/scenes/player.tscn" id="2_l627i"]
+[ext_resource type="Script" path="res://world/canvas_layer.gd" id="4_pj4y3"]
 [ext_resource type="Script" path="res://world/line_one_follow.gd" id="5_cnqym"]
 [ext_resource type="Script" path="res://world/line_two_follow.gd" id="6_tapme"]
 [ext_resource type="Script" path="res://world/line_three_follow.gd" id="7_gjb5s"]
@@ -1852,6 +1853,21 @@ point_count = 2
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wblu7"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ep36"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.6, 0.6, 0.6, 0.666667)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_e3f7a"]
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
 [node name="world" type="Node2D"]
 script = ExtResource("1_gir40")
 
@@ -1875,9 +1891,9 @@ z_index = 5
 position = Vector2(56, 87)
 collision_mask = 28
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="MenuCanvas" type="CanvasLayer" parent="."]
 
-[node name="PausedMenu" parent="CanvasLayer" instance=ExtResource("7_k03n4")]
+[node name="PausedMenu" parent="MenuCanvas" instance=ExtResource("7_k03n4")]
 
 [node name="line_one" type="Path2D" parent="."]
 position = Vector2(310, 50)
@@ -1921,6 +1937,39 @@ collision_mask = 8
 position = Vector2(25, 85)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_wblu7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("4_pj4y3")
+
+[node name="messageBox" type="Panel" parent="CanvasLayer"]
+layout_direction = 2
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = -34.0
+offset_right = -31.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7ep36")
+
+[node name="Label" type="Label" parent="CanvasLayer/messageBox"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_e3f7a")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="timeout" from="line_one/line_one_follow/enemy_timer_one" to="." method="_on_enemy_timer_one_timeout"]
 [connection signal="timeout" from="line_one/line_one_follow/enemy_timer_one" to="line_one/line_one_follow" method="_on_enemy_timer_one_timeout"]

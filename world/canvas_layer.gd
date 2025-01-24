@@ -75,10 +75,10 @@ func show_random_dialogue():
 	dialogue_label.text =random_dialouge
 	
 	dialogue_panel.visible = true  # Show panel
-	await get_tree().create_timer(5).timeout  # Wait for 5 seconds
+	await get_tree().create_timer(3).timeout  # Wait for 5 seconds
 
 	dialogue_panel.visible = false  # Hide panel
-	await get_tree().create_timer(7).timeout  # Wait for 7 seconds
+	await get_tree().create_timer(2).timeout  # Wait for 7 seconds
 	dialogue_panel.hide()
 	gum_or_Teeth_dialouge_order = !gum_or_Teeth_dialouge_order
 	show_random_dialogue()  # Repeat the process
