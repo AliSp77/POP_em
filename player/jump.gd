@@ -13,7 +13,6 @@ var last_y: float
 
 func enter():
 	animation.play("jump")
-	print("jump")
 	player.velocity.y = Jump_speed
 	last_y = player.position.y
 	collision.disabled = true
