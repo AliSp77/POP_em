@@ -2,7 +2,7 @@ extends Area2D
 class_name HurtBox
 
 signal DamageTaken(damage: int)
-
+	
 @export var health: Health
 
 func _ready() -> void:

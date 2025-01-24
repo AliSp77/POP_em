@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=4 uid="uid://n1oas22mem4g"]
+[gd_scene load_steps=10 format=4 uid="uid://n1oas22mem4g"]
 
-[ext_resource type="Script" path="res://world/za_world.gd" id="1_2mkht"]
 [ext_resource type="Texture2D" uid="uid://driyn5hssrbvt" path="res://assets/cp/cp/CP_V1.0.4.png" id="1_wr41b"]
 [ext_resource type="PackedScene" uid="uid://dc7a5wixcvv4x" path="res://player/player.tscn" id="2_l627i"]
 [ext_resource type="PackedScene" uid="uid://d240y8tw3hb2e" path="res://Enemy/enemy.tscn" id="7_25grb"]
@@ -1826,7 +1825,7 @@ texture = ExtResource("1_wr41b")
 sources/0 = SubResource("TileSetAtlasSource_fwva0")
 
 [node name="world" type="Node2D"]
-script = ExtResource("1_2mkht")
+script = ExtResource("1_gir40")
 
 [node name="TileMap" type="Node2D" parent="."]
 
