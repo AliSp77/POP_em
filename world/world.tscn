@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://n1oas22mem4g"]
+[gd_scene load_steps=18 format=4 uid="uid://n1oas22mem4g"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_gir40"]
 [ext_resource type="Texture2D" uid="uid://driyn5hssrbvt" path="res://assets/cp/cp/CP_V1.0.4.png" id="1_wr41b"]
@@ -1850,6 +1850,8 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wblu7"]
+
 [node name="world" type="Node2D"]
 script = ExtResource("1_gir40")
 
@@ -1911,7 +1913,17 @@ script = ExtResource("7_gjb5s")
 [node name="line_three_timer" type="Timer" parent="line_three/line_three_follow"]
 autostart = true
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(25, 85)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_wblu7")
+
 [connection signal="timeout" from="line_one/line_one_follow/enemy_timer_one" to="." method="_on_enemy_timer_one_timeout"]
 [connection signal="timeout" from="line_one/line_one_follow/enemy_timer_one" to="line_one/line_one_follow" method="_on_enemy_timer_one_timeout"]
 [connection signal="timeout" from="line_two/line_two_follow/line_two_timer" to="line_two/line_two_follow" method="_on_line_two_timer_timeout"]
 [connection signal="timeout" from="line_three/line_three_follow/line_three_timer" to="line_three/line_three_follow" method="_on_line_three_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

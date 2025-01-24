@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://duntynknfrmt7"]
 
 [ext_resource type="Script" path="res://Enemy/Dandon1/dandon_1.gd" id="1_tfuj5"]
-[ext_resource type="Texture2D" uid="uid://dmqkkx2a41m0u" path="res://assets/enemies/Norm.png" id="2_0ymup"]
+[ext_resource type="Texture2D" uid="uid://duvtc0cerfhi0" path="res://Enemy/new_sprite/Norm.png" id="2_3wb7f"]
 [ext_resource type="Script" path="res://hurt_box.gd" id="3_ecdui"]
 [ext_resource type="Script" path="res://health.gd" id="4_jifag"]
 [ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/scenes/hit_box.tscn" id="5_4bdkd"]
@@ -19,7 +19,7 @@ collision_mask = 5
 script = ExtResource("1_tfuj5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_0ymup")
+texture = ExtResource("2_3wb7f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_0hamc")
