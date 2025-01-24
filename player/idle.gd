@@ -41,7 +41,6 @@ func physics_update(_delta: float) -> void:
 func enter() -> void:
 	player.velocity.x = 0
 	animation.play("idle")
-	print("idle")
 
 ## Called by the state machine before changing the active state. Use this function
 ## to clean up the state.

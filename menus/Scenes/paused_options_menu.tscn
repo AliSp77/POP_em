@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqi55o2ix2edh"]
+
+[ext_resource type="Theme" uid="uid://xky165su6gb8" path="res://old-menus/Arts/start_menu.tres" id="1_nmy3k"]
+[ext_resource type="Script" path="res://menus/Scripts/paused_options_menu.gd" id="2_o4qt2"]
+[ext_resource type="Texture2D" uid="uid://2p7k734m0xo" path="res://old-menus/Arts/Free-City-Backgrounds-Pixel-Art2.png" id="3_wmg20"]
+
+[node name="PausedOptions" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nmy3k")
+script = ExtResource("2_o4qt2")
+
+[node name="BackGround" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_wmg20")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0.458824)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer"]
+layout_mode = 2
+
+[node name="Mute" type="CheckButton" parent="Panel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Mute"
+
+[node name="Back" type="Button" parent="Panel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.745098, 0, 0.541176, 1)
+theme_override_colors/font_color = Color(0, 1, 0.639216, 1)
+text = "Back
+"
+
+[connection signal="toggled" from="Panel/CenterContainer/VBoxContainer/Mute" to="." method="_on_mute_toggled"]
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

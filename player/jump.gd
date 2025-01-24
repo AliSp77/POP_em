@@ -8,7 +8,11 @@ var last_y: float
 @export var walk: State
 @export var idle: State
 
+@onready var animation: AnimationPlayer = $"../../Animation"
+
+
 func enter():
+	animation.play("jump")
 	player.velocity.y = Jump_speed
 	last_y = player.position.y
 	collision.disabled = true

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d240y8tw3hb2e"]
+[gd_scene load_steps=8 format=3 uid="uid://d240y8tw3hb2e"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_mc60o"]
 [ext_resource type="Texture2D" uid="uid://bnq10d77kthvh" path="res://assets/blue-witch/B_witch_run.png" id="1_sxm34"]
 [ext_resource type="Script" path="res://hurt_box.gd" id="2_exd00"]
 [ext_resource type="Script" path="res://health.gd" id="4_djxjq"]
+[ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/hit_box.tscn" id="5_7xo68"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hamc"]
 radius = 6.0
@@ -14,8 +15,8 @@ radius = 6.0
 height = 24.0
 
 [node name="Enemy" type="CharacterBody2D"]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 8
+collision_mask = 21
 script = ExtResource("1_mc60o")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -41,3 +42,10 @@ debug_color = Color(0.977512, 0, 0.403538, 0.42)
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("4_djxjq")
+
+[node name="Hitbox" parent="." instance=ExtResource("5_7xo68")]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_0hamc")

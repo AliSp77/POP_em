@@ -4,7 +4,7 @@ class_name WalkState extends State
 
 var direction : int = 1
 var current_direcion: int = 1
-var move_speed = 200
+var move_speed = 100
 @onready var sprite: Sprite2D = $"../../Sprite2D"
 @onready var animation: AnimationPlayer = $"../../Animation"
 
@@ -49,7 +49,6 @@ func physics_update(_delta: float) -> void:
 ## is a dictionary with arbitrary data the state can use to initialize itself.
 func enter() -> void:
 	animation.play("Run")
-	print("walk")
 
 ## Called by the state machine before changing the active state. Use this function
 ## to clean up the state.

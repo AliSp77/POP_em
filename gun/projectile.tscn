@@ -1,22 +1,81 @@
-[gd_scene load_steps=5 format=3 uid="uid://c13ohuchhijy5"]
+[gd_scene load_steps=9 format=3 uid="uid://c13ohuchhijy5"]
 
 [ext_resource type="Script" path="res://gun/projectile.gd" id="1_i2rtl"]
-[ext_resource type="Texture2D" uid="uid://cw3oejp7a16ss" path="res://icon.svg" id="2_c2773"]
+[ext_resource type="Texture2D" uid="uid://d3j8nc7txvbyt" path="res://gun/gun/Sprite-0001.png" id="2_i37fn"]
 [ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/hit_box.tscn" id="3_514np"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgpo0"]
-size = Vector2(12, 12)
+size = Vector2(14, 14)
+
+[sub_resource type="Animation" id="Animation_nebqo"]
+resource_name = "shoot"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 5]
+}
+
+[sub_resource type="Animation" id="Animation_e1gyn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lga7k"]
+_data = {
+"RESET": SubResource("Animation_e1gyn"),
+"shoot": SubResource("Animation_nebqo")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lgpfw"]
+radius = 4.0
 
 [node name="projectile" type="Node2D"]
-position = Vector2(21, 100)
+z_index = 2
 script = ExtResource("1_i2rtl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_c2773")
+self_modulate = Color(1, 0.501961, 1, 1)
+texture = ExtResource("2_i37fn")
+hframes = 6
 
 [node name="Hitbox" parent="." instance=ExtResource("3_514np")]
 damage = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+visible = false
+position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_dgpo0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lga7k")
+}
+autoplay = "shoot"
+
+[node name="hit" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit"]
+shape = SubResource("CircleShape2D_lgpfw")
+
+[connection signal="area_entered" from="hit" to="." method="_on_hit_area_entered"]
+[connection signal="body_entered" from="hit" to="." method="_on_hit_body_entered"]

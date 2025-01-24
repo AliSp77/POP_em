@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=3 uid="uid://dtfy7ei8lby1v"]
+
+[ext_resource type="Script" path="res://menus/Scripts/paused_menu.gd" id="1_nrm8f"]
+
+[sub_resource type="SystemFont" id="SystemFont_5eghd"]
+font_names = PackedStringArray("Upheaval TT (BRK)")
+
+[sub_resource type="Theme" id="Theme_b343j"]
+default_font = SubResource("SystemFont_5eghd")
+default_font_size = 20
+
+[sub_resource type="Animation" id="Animation_a6fd8"]
+resource_name = "Fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.486311),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5cx64"]
+resource_name = "Fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_76n8v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jhahv"]
+_data = {
+"Fade_in": SubResource("Animation_a6fd8"),
+"Fade_out": SubResource("Animation_5cx64"),
+"RESET": SubResource("Animation_76n8v")
+}
+
+[node name="PausedMenu" type="Control"]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_b343j")
+script = ExtResource("1_nrm8f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27451)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 8
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Paused"
+
+[node name="Resume" type="Button" parent="GridContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Resume"
+
+[node name="Menu" type="Button" parent="GridContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Menu
+"
+
+[node name="Quit" type="Button" parent="GridContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Quit
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+"": SubResource("AnimationLibrary_jhahv")
+}
+
+[connection signal="pressed" from="GridContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="GridContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="GridContainer/Quit" to="." method="_on_quit_pressed"]

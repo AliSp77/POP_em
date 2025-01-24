@@ -1,69 +1,19 @@
-[gd_scene load_steps=15 format=3 uid="uid://dc7a5wixcvv4x"]
+[gd_scene load_steps=18 format=3 uid="uid://dc7a5wixcvv4x"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_b555d"]
-[ext_resource type="Texture2D" uid="uid://db5vnw3m0byne" path="res://player/Sprite/oldman.png" id="2_rn84u"]
+[ext_resource type="Texture2D" uid="uid://wsal0kll321t" path="res://player/Sprite/asl-sheet-col.png" id="2_7yoxw"]
 [ext_resource type="Script" path="res://player/Scripts/state_machine.gd" id="3_geupc"]
 [ext_resource type="Script" path="res://player/idle.gd" id="4_hjf3x"]
 [ext_resource type="Script" path="res://player/Scripts/walk.gd" id="5_s6wi1"]
 [ext_resource type="Script" path="res://player/jump.gd" id="6_dg0n0"]
 [ext_resource type="Script" path="res://player/fall.gd" id="7_vmbab"]
 [ext_resource type="PackedScene" uid="uid://cq7cgixja67yd" path="res://gun/gun.tscn" id="8_i3uoo"]
+[ext_resource type="PackedScene" uid="uid://bp6hp8jyxrs8m" path="res://gun/hurt_box.tscn" id="9_l5yb3"]
+[ext_resource type="PackedScene" uid="uid://c8iy16j2row0j" path="res://gun/health.tscn" id="10_nf2vp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_omm3f"]
-radius = 6.0
-height = 20.0
-
-[sub_resource type="Animation" id="Animation_6fpvw"]
-resource_name = "Run"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("character:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 15]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("gun:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.166667, 0.233333, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.566667, 0.633333, 0.7, 0.833333, 0.933333, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(13, -6), Vector2(15, -8), Vector2(17, -10), Vector2(18, -12), Vector2(19, -9), Vector2(18, -6), Vector2(18, -6), Vector2(16, -5), Vector2(16, -5), Vector2(13, -4), Vector2(13, -4), Vector2(12, -4), Vector2(9, -4), Vector2(4, -6), Vector2(1, -8), Vector2(-1, -6), Vector2(1, -5), Vector2(10, -5)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("gun:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("gun:z_index")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-1]
-}
+radius = 6.99944
+height = 25.9979
 
 [sub_resource type="Animation" id="Animation_ske0g"]
 length = 0.001
@@ -79,41 +29,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("gun:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+
+[sub_resource type="Animation" id="Animation_6fpvw"]
+resource_name = "Run"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-3, -5)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("gun:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.5708]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("gun:z_index")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-1]
+"values": [0, 10]
 }
 
 [sub_resource type="Animation" id="Animation_pr3ng"]
@@ -129,70 +59,65 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [16, 25]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("gun:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.3, 0.4, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-3, -5), Vector2(-3, -3), Vector2(-3, -2), Vector2(-3, -3), Vector2(-3, -4)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("gun:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.5708]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("gun:z_index")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"values": [11, 18]
 }
 
 [sub_resource type="Animation" id="Animation_pm3y4"]
 resource_name = "jump"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [34, 39]
+}
+
+[sub_resource type="Animation" id="Animation_yakp4"]
+resource_name = "ouch"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [34, 33, 34]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n44eu"]
 _data = {
 "RESET": SubResource("Animation_ske0g"),
 "Run": SubResource("Animation_6fpvw"),
 "idle": SubResource("Animation_pr3ng"),
-"jump": SubResource("Animation_pm3y4")
+"jump": SubResource("Animation_pm3y4"),
+"ouch": SubResource("Animation_yakp4")
 }
 
 [node name="player" type="CharacterBody2D"]
 position = Vector2(0, -8)
-collision_layer = 0
-collision_mask = 4
-platform_floor_layers = 4294967044
+collision_mask = 20
+platform_floor_layers = 4294967041
 script = ExtResource("1_b555d")
 
 [node name="character" type="Sprite2D" parent="."]
-texture = ExtResource("2_rn84u")
+position = Vector2(-1, 19)
+texture = ExtResource("2_7yoxw")
 offset = Vector2(0, -25)
-hframes = 26
+hframes = 41
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, -2)
+position = Vector2(2, 1)
+rotation = 4.72509
 shape = SubResource("CapsuleShape2D_omm3f")
 
 [node name="Timer" type="Timer" parent="."]
@@ -225,11 +150,6 @@ script = ExtResource("7_vmbab")
 walk = NodePath("../WalkState")
 idle = NodePath("../IdleState")
 
-[node name="gun" parent="." instance=ExtResource("8_i3uoo")]
-z_index = -1
-position = Vector2(-3, -5)
-rotation = 1.5708
-
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_n44eu")
@@ -237,4 +157,26 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="Pistol" parent="." instance=ExtResource("8_i3uoo")]
+z_index = 1
+position = Vector2(-3, 6)
+
+[node name="HurtBox" parent="." node_paths=PackedStringArray("health") instance=ExtResource("9_l5yb3")]
+collision_layer = 1
+collision_mask = 8
+health = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(2, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_omm3f")
+
+[node name="Health" parent="." instance=ExtResource("10_nf2vp")]
+
+[node name="invulner" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="DamageTaken" from="HurtBox" to="." method="_on_hurt_box_damage_taken"]
+[connection signal="timeout" from="invulner" to="HurtBox" method="_on_invulner_timeout"]
