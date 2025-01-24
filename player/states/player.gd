@@ -1,8 +1,11 @@
 extends CharacterBody2D
 @onready var state_machine: StateMachine = $StateMachine
 @onready var animation: AnimationPlayer = $Animation
+@onready var invulner: Timer = $invulner
 
 @onready var pistol: Node2D = $Pistol
+
+var inv: bool = true
 
 func _ready() -> void:
 	state_machine.init(self)
@@ -29,3 +32,17 @@ func _physics_process(delta: float) -> void:
 
 func _on_hurt_box_damage_taken(damage: int) -> void:
 	animation.play("ouch")
+	invulner.start()
+	inv = true
+#
+		#inv = true
+		#invulner.start()
+#
+#func _on_invulner_timeout() -> void:
+	#inv = false
+
+func _on_hurt_box_health_depleted() -> void:
+	print("you died")
+
+func _on_invulner_timeout() -> void:
+	inv = false

@@ -3,7 +3,7 @@ extends PathFollow2D
 var count = 0
 var limit = 12
 
-var enemy_tscn = preload("res://Enemy/enemy.tscn")
+var enemy_tscn = preload("res://Enemy/dandon_3/dandon3.tscn")
 
 @onready var line_three_timer: Timer = $line_three_timer
 
@@ -20,7 +20,7 @@ func _on_line_three_timer_timeout() -> void:
 	print("Line Three")
 	
 	var enemy_instance = enemy_tscn.instantiate()
-	
+	enemy_instance.rotation_degrees = 180
 	add_child(enemy_instance)
 	count += 1;
 

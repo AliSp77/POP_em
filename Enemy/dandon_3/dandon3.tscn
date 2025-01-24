@@ -1,51 +1,50 @@
-[gd_scene load_steps=8 format=3 uid="uid://d240y8tw3hb2e"]
+[gd_scene load_steps=8 format=3 uid="uid://dx72mpa1e1we4"]
 
-[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_mc60o"]
-[ext_resource type="Texture2D" uid="uid://bnq10d77kthvh" path="res://assets/blue-witch/B_witch_run.png" id="1_sxm34"]
-[ext_resource type="Script" path="res://hurt_box.gd" id="2_exd00"]
-[ext_resource type="Script" path="res://health.gd" id="4_djxjq"]
-[ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/scenes/hit_box.tscn" id="5_7xo68"]
+[ext_resource type="Script" path="res://Enemy/dandon_3/dandon3.gd" id="1_wyv7i"]
+[ext_resource type="Texture2D" uid="uid://dmqkkx2a41m0u" path="res://assets/enemies/Norm.png" id="2_buu1u"]
+[ext_resource type="Script" path="res://hurt_box.gd" id="3_pmhir"]
+[ext_resource type="Script" path="res://health.gd" id="4_he60x"]
+[ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/scenes/hit_box.tscn" id="5_rvveu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hamc"]
-radius = 6.0
-height = 24.0
+radius = 7.0
+height = 28.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hc7eh"]
-radius = 6.0
-height = 24.0
+radius = 9.0
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="dandon3" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 5
-script = ExtResource("1_mc60o")
+script = ExtResource("1_wyv7i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_sxm34")
-flip_h = true
-vframes = 8
+texture = ExtResource("2_buu1u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_0hamc")
 debug_color = Color(1.05888e-06, 0.650034, 0.115851, 0.42)
 
 [node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
 collision_layer = 0
 collision_mask = 32
-script = ExtResource("2_exd00")
+script = ExtResource("3_pmhir")
 health = NodePath("../Health")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(1, 1)
+visible = false
+position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_hc7eh")
 debug_color = Color(0.977512, 0, 0.403538, 0.42)
 
 [node name="Health" type="Node" parent="."]
-script = ExtResource("4_djxjq")
+script = ExtResource("4_he60x")
+health = 5.0
 
-[node name="Hitbox" parent="." instance=ExtResource("5_7xo68")]
+[node name="Hitbox" parent="." instance=ExtResource("5_rvveu")]
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(1, 1)
+visible = false
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0hamc")
