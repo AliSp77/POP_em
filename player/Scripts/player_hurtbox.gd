@@ -1,18 +1,22 @@
 extends Area2D
-class_name HurtBox
+class_name PlayerHurtBox
 
 signal DamageTaken(damage: int)
-signal HealthDepleted
 	
 @export var health: Health
+var inv: bool = false
+@onready var invulner: Timer = $"../invulner"
 
 func _ready() -> void:
 	connect("area_entered", on_are_entered)
 
 func on_are_entered(hitbox: HitBox) -> void:
-	if hitbox != null:
+	if hitbox != null and not inv:
 		health.health -= hitbox.damage
 		print(health.health)
 		DamageTaken.emit(hitbox.damage)
-		if health.health <= 0:
-			HealthDepleted.emit()
+		inv = true
+		invulner.start()
+
+func _on_invulner_timeout() -> void:
+	inv = false

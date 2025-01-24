@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq7cgixja67yd"]
+
+[ext_resource type="Script" path="res://gun/scripts/gun.gd" id="1_plyko"]
+
+[node name="Pistol" type="Node2D"]
+modulate = Color(1, 1, 0, 1)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_plyko")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(13, -5)
