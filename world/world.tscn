@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://n1oas22mem4g"]
+[gd_scene load_steps=17 format=4 uid="uid://n1oas22mem4g"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_gir40"]
 [ext_resource type="Texture2D" uid="uid://driyn5hssrbvt" path="res://assets/cp/cp/CP_V1.0.4.png" id="1_wr41b"]
 [ext_resource type="PackedScene" uid="uid://dc7a5wixcvv4x" path="res://player/player.tscn" id="2_l627i"]
-[ext_resource type="PackedScene" uid="uid://d240y8tw3hb2e" path="res://Enemy/enemy.tscn" id="7_25grb"]
+[ext_resource type="Script" path="res://world/line_one_follow.gd" id="5_cnqym"]
+[ext_resource type="Script" path="res://world/line_two_follow.gd" id="6_tapme"]
+[ext_resource type="Script" path="res://world/line_three_follow.gd" id="7_gjb5s"]
 [ext_resource type="PackedScene" uid="uid://dtfy7ei8lby1v" path="res://menus/Scenes/paused_menu.tscn" id="7_k03n4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1jqi"]
@@ -1825,6 +1827,25 @@ texture = ExtResource("1_wr41b")
 [sub_resource type="TileSet" id="TileSet_3dhv6"]
 sources/0 = SubResource("TileSetAtlasSource_fwva0")
 
+[sub_resource type="Curve2D" id="Curve2D_rlf5o"]
+bake_interval = 49.8
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -320, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_1ijf7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 246.315, -18.8988, -320, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_lpact"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -320, 0)
+}
+point_count = 2
+
 [node name="world" type="Node2D"]
 script = ExtResource("1_gir40")
 
@@ -1848,27 +1869,46 @@ z_index = 5
 position = Vector2(56, 87)
 collision_mask = 28
 
-[node name="Enemy2" parent="." instance=ExtResource("7_25grb")]
-position = Vector2(285, 91)
-
-[node name="Enemy3" parent="." instance=ExtResource("7_25grb")]
-position = Vector2(285, 44)
-
-[node name="Enemy4" parent="." instance=ExtResource("7_25grb")]
-position = Vector2(294, 135)
-
-[node name="Enemy5" parent="." instance=ExtResource("7_25grb")]
-position = Vector2(312, 134)
-
-[node name="Enemy6" parent="." instance=ExtResource("7_25grb")]
-position = Vector2(309, 90)
-
-[node name="Enemy7" parent="." instance=ExtResource("7_25grb")]
-position = Vector2(303, 46)
-
-[node name="Enemy8" parent="." instance=ExtResource("7_25grb")]
-position = Vector2(315, 42)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PausedMenu" parent="CanvasLayer" instance=ExtResource("7_k03n4")]
+
+[node name="line_one" type="Path2D" parent="."]
+position = Vector2(310, 50)
+curve = SubResource("Curve2D_rlf5o")
+
+[node name="line_one_follow" type="PathFollow2D" parent="line_one"]
+rotation = 3.14159
+script = ExtResource("5_cnqym")
+
+[node name="enemy_timer_one" type="Timer" parent="line_one/line_one_follow"]
+autostart = true
+
+[node name="line_two" type="Path2D" parent="."]
+position = Vector2(310, 100)
+curve = SubResource("Curve2D_1ijf7")
+
+[node name="line_two_follow" type="PathFollow2D" parent="line_two"]
+rotation = 3.14159
+script = ExtResource("6_tapme")
+
+[node name="line_two_timer" type="Timer" parent="line_two/line_two_follow"]
+wait_time = 0.3
+autostart = true
+
+[node name="line_three" type="Path2D" parent="."]
+position = Vector2(310, 140)
+curve = SubResource("Curve2D_lpact")
+
+[node name="line_three_follow" type="PathFollow2D" parent="line_three"]
+rotation = 3.14159
+script = ExtResource("7_gjb5s")
+
+[node name="line_three_timer" type="Timer" parent="line_three/line_three_follow"]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="line_one/line_one_follow/enemy_timer_one" to="." method="_on_enemy_timer_one_timeout"]
+[connection signal="timeout" from="line_one/line_one_follow/enemy_timer_one" to="line_one/line_one_follow" method="_on_enemy_timer_one_timeout"]
+[connection signal="timeout" from="line_two/line_two_follow/line_two_timer" to="line_two/line_two_follow" method="_on_line_two_timer_timeout"]
+[connection signal="timeout" from="line_three/line_three_follow/line_three_timer" to="line_three/line_three_follow" method="_on_line_three_timer_timeout"]
