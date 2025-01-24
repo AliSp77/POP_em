@@ -1909,7 +1909,6 @@ rotation = 3.14159
 script = ExtResource("7_gjb5s")
 
 [node name="line_three_timer" type="Timer" parent="line_three/line_three_follow"]
-wait_time = 3.0
 autostart = true
 
 [connection signal="timeout" from="line_one/line_one_follow/enemy_timer_one" to="." method="_on_enemy_timer_one_timeout"]
