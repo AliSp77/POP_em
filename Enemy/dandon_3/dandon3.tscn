@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dx72mpa1e1we4"]
+[gd_scene load_steps=9 format=3 uid="uid://dx72mpa1e1we4"]
 
 [ext_resource type="Script" path="res://Enemy/dandon_3/dandon3.gd" id="1_wyv7i"]
-[ext_resource type="Texture2D" uid="uid://dmqkkx2a41m0u" path="res://assets/enemies/Norm.png" id="2_buu1u"]
+[ext_resource type="Texture2D" uid="uid://bvpnsg5ott0bt" path="res://Enemy/new_sprite/Gold.png" id="2_lsn6x"]
 [ext_resource type="Script" path="res://hurt_box.gd" id="3_pmhir"]
 [ext_resource type="Script" path="res://health.gd" id="4_he60x"]
 [ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/scenes/hit_box.tscn" id="5_rvveu"]
@@ -13,13 +13,17 @@ height = 28.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hc7eh"]
 radius = 9.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cl7w4"]
+radius = 8.0
+height = 28.0
+
 [node name="dandon3" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_wyv7i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_buu1u")
+texture = ExtResource("2_lsn6x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_0hamc")
@@ -32,19 +36,17 @@ script = ExtResource("3_pmhir")
 health = NodePath("../Health")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-visible = false
 position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_hc7eh")
 debug_color = Color(0.977512, 0, 0.403538, 0.42)
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("4_he60x")
-health = 5.0
+health = 10.0
 
 [node name="Hitbox" parent="." instance=ExtResource("5_rvveu")]
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-visible = false
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_0hamc")
+shape = SubResource("CapsuleShape2D_cl7w4")
