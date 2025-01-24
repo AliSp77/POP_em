@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://n1oas22mem4g"]
+[gd_scene load_steps=12 format=4 uid="uid://n1oas22mem4g"]
 
+[ext_resource type="Script" path="res://world/za_world.gd" id="1_2mkht"]
 [ext_resource type="Texture2D" uid="uid://driyn5hssrbvt" path="res://assets/cp/cp/CP_V1.0.4.png" id="1_wr41b"]
 [ext_resource type="PackedScene" uid="uid://dc7a5wixcvv4x" path="res://player/player.tscn" id="2_l627i"]
 [ext_resource type="PackedScene" uid="uid://d240y8tw3hb2e" path="res://Enemy/enemy.tscn" id="7_25grb"]
+[ext_resource type="PackedScene" uid="uid://dtfy7ei8lby1v" path="res://menus/Scenes/paused_menu.tscn" id="7_k03n4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1jqi"]
 texture = ExtResource("1_wr41b")
@@ -1824,6 +1826,7 @@ texture = ExtResource("1_wr41b")
 sources/0 = SubResource("TileSetAtlasSource_fwva0")
 
 [node name="world" type="Node2D"]
+script = ExtResource("1_2mkht")
 
 [node name="TileMap" type="Node2D" parent="."]
 
@@ -1843,6 +1846,7 @@ tile_set = SubResource("TileSet_3dhv6")
 [node name="player" parent="." instance=ExtResource("2_l627i")]
 z_index = 5
 position = Vector2(56, 87)
+collision_mask = 28
 
 [node name="Enemy2" parent="." instance=ExtResource("7_25grb")]
 position = Vector2(285, 91)
@@ -1864,3 +1868,7 @@ position = Vector2(303, 46)
 
 [node name="Enemy8" parent="." instance=ExtResource("7_25grb")]
 position = Vector2(315, 42)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PausedMenu" parent="CanvasLayer" instance=ExtResource("7_k03n4")]
