@@ -1,17 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq7cgixja67yd"]
+[gd_scene load_steps=2 format=3 uid="uid://cq7cgixja67yd"]
 
 [ext_resource type="Script" path="res://gun/gun.gd" id="1_h30cn"]
-[ext_resource type="Texture2D" uid="uid://8gs1bhmdf67i" path="res://gun/gun/pixil-frame-0 (3).png" id="2_wqae3"]
 
 [node name="Pistol" type="Node2D"]
 modulate = Color(1, 1, 0, 1)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_h30cn")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_wqae3")
-offset = Vector2(5, 0)
-flip_h = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(13, -5)

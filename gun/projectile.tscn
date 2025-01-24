@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c13ohuchhijy5"]
+[gd_scene load_steps=9 format=3 uid="uid://c13ohuchhijy5"]
 
 [ext_resource type="Script" path="res://gun/projectile.gd" id="1_i2rtl"]
 [ext_resource type="Texture2D" uid="uid://d3j8nc7txvbyt" path="res://gun/gun/Sprite-0001.png" id="2_i37fn"]
@@ -44,10 +44,15 @@ _data = {
 "shoot": SubResource("Animation_nebqo")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lgpfw"]
+radius = 4.0
+
 [node name="projectile" type="Node2D"]
+z_index = 2
 script = ExtResource("1_i2rtl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.501961, 1, 1)
 texture = ExtResource("2_i37fn")
 hframes = 6
 
@@ -64,3 +69,13 @@ libraries = {
 "": SubResource("AnimationLibrary_lga7k")
 }
 autoplay = "shoot"
+
+[node name="hit" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit"]
+shape = SubResource("CircleShape2D_lgpfw")
+
+[connection signal="area_entered" from="hit" to="." method="_on_hit_area_entered"]
+[connection signal="body_entered" from="hit" to="." method="_on_hit_body_entered"]
