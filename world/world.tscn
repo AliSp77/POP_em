@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_gir40"]
 [ext_resource type="Texture2D" uid="uid://driyn5hssrbvt" path="res://assets/cp/cp/CP_V1.0.4.png" id="1_wr41b"]
-[ext_resource type="PackedScene" uid="uid://dc7a5wixcvv4x" path="res://player/player.tscn" id="2_l627i"]
-[ext_resource type="PackedScene" uid="uid://d240y8tw3hb2e" path="res://Enemy/enemy.tscn" id="7_25grb"]
+[ext_resource type="PackedScene" uid="uid://dc7a5wixcvv4x" path="res://player/scenes/player.tscn" id="2_l627i"]
+[ext_resource type="Script" path="res://world/line_one_follow.gd" id="5_cnqym"]
+[ext_resource type="Script" path="res://world/line_two_follow.gd" id="6_tapme"]
+[ext_resource type="Script" path="res://world/line_three_follow.gd" id="7_gjb5s"]
+[ext_resource type="PackedScene" uid="uid://dtfy7ei8lby1v" path="res://menus/Scenes/paused_menu.tscn" id="7_k03n4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1jqi"]
 texture = ExtResource("1_wr41b")
@@ -1827,6 +1830,27 @@ texture = ExtResource("1_wr41b")
 physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_fwva0")
+
+[sub_resource type="Curve2D" id="Curve2D_rlf5o"]
+bake_interval = 49.8
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -320, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_1ijf7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 246.315, -18.8988, -320, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_lpact"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -320, 0)
+}
+point_count = 2
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wblu7"]
 
 [node name="world" type="Node2D"]
 script = ExtResource("1_gir40")
