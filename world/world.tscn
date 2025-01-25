@@ -1932,6 +1932,7 @@ rotation = 3.14159
 script = ExtResource("7_gjb5s")
 
 [node name="line_three_timer" type="Timer" parent="line_three/line_three_follow"]
+wait_time = 0.5
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
