@@ -104,7 +104,7 @@ _data = {
 }
 
 [node name="player" type="CharacterBody2D"]
-position = Vector2(0, -8)
+position = Vector2(160, 81)
 collision_mask = 20
 platform_floor_layers = 4294967041
 script = ExtResource("1_b555d")
@@ -156,6 +156,8 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
+texture_filter = 1
+position_smoothing_enabled = true
 
 [node name="Pistol" parent="." instance=ExtResource("8_i3uoo")]
 z_index = 1

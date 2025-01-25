@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cr67ryg5yeowu"]
+[gd_scene load_steps=4 format=3 uid="uid://cr67ryg5yeowu"]
 
 [ext_resource type="Script" path="res://menus/Scripts/start_menu.gd" id="1_vqb3q"]
+[ext_resource type="Theme" uid="uid://d2w0dv6jaikcv" path="res://start_menu.tres" id="2_utfbe"]
 [ext_resource type="Texture2D" uid="uid://bsbkxfcq4st7l" path="res://menus/Art/bg.jpg" id="2_yymdo"]
 
 [node name="StartMenu" type="Control"]
@@ -20,8 +21,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_utfbe")
 texture = ExtResource("2_yymdo")
 expand_mode = 2
+stretch_mode = 6
 
 [node name="Panel" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -53,20 +56,24 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Panel/CenterContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Gummy Gummy"
+theme = ExtResource("2_utfbe")
+theme_override_colors/font_color = Color(0.732153, 3.36915e-07, 0.405973, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "GUBBLE"
 
 [node name="Start" type="Button" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme = ExtResource("2_utfbe")
+theme_override_font_sizes/font_size = 20
 text = "Start
 "
+icon_alignment = 1
 
 [node name="Quit" type="Button" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme = ExtResource("2_utfbe")
+theme_override_font_sizes/font_size = 20
 text = "Quit
 "
 

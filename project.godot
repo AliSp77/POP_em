@@ -18,10 +18,12 @@ config/icon="res://icon.svg"
 [display]
 
 window/size/viewport_width=320
-window/size/viewport_height=180
-window/size/window_width_override=640
-window/size/window_height_override=320
+window/size/viewport_height=160
 window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="Bubble"
 
 [input]
 
@@ -90,4 +92,4 @@ power3={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_filter=3
