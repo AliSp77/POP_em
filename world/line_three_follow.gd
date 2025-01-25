@@ -1,7 +1,7 @@
 extends PathFollow2D
 
 var count = 0
-var limit = 12
+var limit = 5
 
 var enemy3_tscn = preload("res://Enemy/dandon_3/dandon3.tscn")
 var enemy1_tscn = preload("res://Enemy/Dandon1/dandon1.tscn")

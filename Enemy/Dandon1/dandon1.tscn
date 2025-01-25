@@ -13,7 +13,7 @@ height = 28.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hc7eh"]
 radius = 9.0
 
-[node name="dandon1" type="CharacterBody2D"]
+[node name="dandon1" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_tfuj5")

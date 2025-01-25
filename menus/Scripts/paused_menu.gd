@@ -16,7 +16,6 @@ func set_paused(value:bool) -> void:
 	if _is_paused:
 		animation_player.play("Fade_in")
 	else:
-		print("test")
 		animation_player.play("Fade_out")
 	get_tree().paused = _is_paused
 	

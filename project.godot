@@ -25,6 +25,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Bubble"
 
+[global_group]
+
+enemies=""
+
 [input]
 
 right={

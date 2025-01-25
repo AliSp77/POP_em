@@ -5,6 +5,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 @onready var health: Health = $Health
 
+signal died()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -16,4 +17,5 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if health.health <= 0:
+		died.emit()
 		queue_free()
