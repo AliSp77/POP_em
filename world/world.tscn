@@ -1873,6 +1873,38 @@ collision_mask = 28
 
 [node name="PausedMenu" parent="CanvasLayer" instance=ExtResource("7_k03n4")]
 
+[node name="message_box" type="Panel" parent="CanvasLayer"]
+layout_direction = 2
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -28.0
+offset_right = -31.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="dialouge_text" type="Label" parent="CanvasLayer/message_box"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="line_one" type="Path2D" parent="."]
 position = Vector2(310, 50)
 curve = SubResource("Curve2D_rlf5o")
@@ -1907,6 +1939,22 @@ script = ExtResource("7_gjb5s")
 [node name="line_three_timer" type="Timer" parent="line_three/line_three_follow"]
 wait_time = 3.0
 autostart = true
+
+[node name="game_over_container" type="Container" parent="."]
+offset_left = -95.0
+offset_right = 322.0
+offset_bottom = 180.0
+
+[node name="TextureRect" type="TextureRect" parent="game_over_container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="game_over_container/TextureRect"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 70.0
+offset_right = 272.0
+offset_bottom = 93.0
+text = "Game Over!"
 
 [connection signal="timeout" from="line_one/line_one_follow/enemy_timer_one" to="." method="_on_enemy_timer_one_timeout"]
 [connection signal="timeout" from="line_one/line_one_follow/enemy_timer_one" to="line_one/line_one_follow" method="_on_enemy_timer_one_timeout"]

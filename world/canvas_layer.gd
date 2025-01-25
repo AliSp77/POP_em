@@ -46,9 +46,8 @@ var gum_or_Teeth_dialouge_order = false
 #
 #func _on_Button_pressed():
 	#update_text()
-
-@onready var dialogue_panel = $messageBox
-@onready var dialogue_label = $messageBox/Label
+@onready var dialogue_panel : Panel = $CanvasLayer/message_box
+@onready var dialogue_label: Label = $CanvasLayer/message_box/dialouge_text
 
 # List of Persian dialogues
 

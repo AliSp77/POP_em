@@ -16,7 +16,7 @@ func on_are_entered(hitbox: HitBox) -> void:
 		print(health.health)
 		DamageTaken.emit(hitbox.damage)
 		inv = true
-		invulner.start()
+  		invulner.start()
 
 func _on_invulner_timeout() -> void:
 	inv = false
