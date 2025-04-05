@@ -1,8 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://cqi55o2ix2edh"]
 
-[ext_resource type="Theme" uid="uid://xky165su6gb8" path="res://old-menus/Arts/start_menu.tres" id="1_nmy3k"]
-[ext_resource type="Script" path="res://menus/Scripts/paused_options_menu.gd" id="2_o4qt2"]
-[ext_resource type="Texture2D" uid="uid://2p7k734m0xo" path="res://old-menus/Arts/Free-City-Backgrounds-Pixel-Art2.png" id="3_wmg20"]
+[ext_resource type="Script" uid="uid://d1m4yfw0th5yi" path="res://menus/Scripts/paused_options_menu.gd" id="2_o4qt2"]
+
+[sub_resource type="Resource" id="Resource_8fjxm"]
+metadata/__load_path__ = "res://old-menus/Arts/start_menu.tres"
+
+[sub_resource type="Resource" id="Resource_uso0p"]
+metadata/__load_path__ = "res://old-menus/Arts/Free-City-Backgrounds-Pixel-Art2.png"
 
 [node name="PausedOptions" type="Control"]
 process_mode = 3
@@ -12,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_nmy3k")
+theme = SubResource("Resource_8fjxm")
 script = ExtResource("2_o4qt2")
 
 [node name="BackGround" type="TextureRect" parent="."]
@@ -22,7 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_wmg20")
+texture = SubResource("Resource_uso0p")
 expand_mode = 1
 stretch_mode = 6
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dtfy7ei8lby1v"]
 
-[ext_resource type="Script" path="res://menus/Scripts/paused_menu.gd" id="1_nrm8f"]
+[ext_resource type="Script" uid="uid://2mo00vlolexa" path="res://menus/Scripts/paused_menu.gd" id="1_nrm8f"]
 
 [sub_resource type="SystemFont" id="SystemFont_5eghd"]
 font_names = PackedStringArray("Upheaval TT (BRK)")
@@ -58,9 +58,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jhahv"]
 _data = {
-"Fade_in": SubResource("Animation_a6fd8"),
-"Fade_out": SubResource("Animation_5cx64"),
-"RESET": SubResource("Animation_76n8v")
+&"Fade_in": SubResource("Animation_a6fd8"),
+&"Fade_out": SubResource("Animation_5cx64"),
+&"RESET": SubResource("Animation_76n8v")
 }
 
 [node name="PausedMenu" type="Control"]

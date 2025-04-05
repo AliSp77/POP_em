@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c13ohuchhijy5"]
 
-[ext_resource type="Script" path="res://gun/scripts/projectile.gd" id="1_tmniv"]
+[ext_resource type="Script" uid="uid://r04nxww5slqk" path="res://gun/scripts/projectile.gd" id="1_tmniv"]
 [ext_resource type="Texture2D" uid="uid://d3j8nc7txvbyt" path="res://gun/gun/Sprite-0001.png" id="2_ynfpl"]
 [ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/scenes/hit_box.tscn" id="3_o6mo3"]
 
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lga7k"]
 _data = {
-"RESET": SubResource("Animation_e1gyn"),
-"shoot": SubResource("Animation_nebqo")
+&"RESET": SubResource("Animation_e1gyn"),
+&"shoot": SubResource("Animation_nebqo")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lgpfw"]

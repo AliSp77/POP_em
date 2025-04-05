@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://bj6manpuv8j6i"]
 
-[ext_resource type="Script" path="res://Enemy/dandon_2/dandon2.gd" id="1_ev5w8"]
+[ext_resource type="Script" uid="uid://d4gmdl12vd7n5" path="res://Enemy/dandon_2/dandon2.gd" id="1_ev5w8"]
 [ext_resource type="Texture2D" uid="uid://b1y38t7vwtpks" path="res://Enemy/new_sprite/fast.png" id="2_700wv"]
-[ext_resource type="Script" path="res://hurt_box.gd" id="3_2o7in"]
-[ext_resource type="Script" path="res://health.gd" id="4_ivrog"]
+[ext_resource type="Script" uid="uid://dckpntwcw0q4p" path="res://hurt_box.gd" id="3_2o7in"]
+[ext_resource type="Script" uid="uid://d0xyb7vt5tqhu" path="res://health.gd" id="4_ivrog"]
 [ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/scenes/hit_box.tscn" id="5_r87y3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hamc"]

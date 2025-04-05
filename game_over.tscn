@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://qpxj6rtiepdb"]
 
 [ext_resource type="Texture2D" uid="uid://bsbkxfcq4st7l" path="res://menus/Art/bg.jpg" id="1_r5nkv"]
-[ext_resource type="Script" path="res://game_over.gd" id="1_xw25k"]
+[ext_resource type="Script" uid="uid://d28mt6uyun04r" path="res://game_over.gd" id="1_xw25k"]
 [ext_resource type="Theme" uid="uid://d2w0dv6jaikcv" path="res://start_menu.tres" id="3_6nhif"]
 
 [sub_resource type="SystemFont" id="SystemFont_evjs7"]
