@@ -1,11 +1,26 @@
 [gd_scene load_steps=8 format=3 uid="uid://c13ohuchhijy5"]
 
-[ext_resource type="Script" path="res://gun/projectile.gd" id="1_i2rtl"]
+[ext_resource type="Script" uid="uid://bnansn3hh7a20" path="res://gun/projectile.gd" id="1_i2rtl"]
 [ext_resource type="Texture2D" uid="uid://d3j8nc7txvbyt" path="res://gun/gun/Sprite-0001.png" id="2_i37fn"]
 [ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/hit_box.tscn" id="3_514np"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgpo0"]
 size = Vector2(14, 14)
+
+[sub_resource type="Animation" id="Animation_e1gyn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_nebqo"]
 resource_name = "shoot"
@@ -23,25 +38,10 @@ tracks/0/keys = {
 "values": [0, 5]
 }
 
-[sub_resource type="Animation" id="Animation_e1gyn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lga7k"]
 _data = {
-"RESET": SubResource("Animation_e1gyn"),
-"shoot": SubResource("Animation_nebqo")
+&"RESET": SubResource("Animation_e1gyn"),
+&"shoot": SubResource("Animation_nebqo")
 }
 
 [node name="projectile" type="Node2D"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://d240y8tw3hb2e"]
 
-[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_mc60o"]
+[ext_resource type="Script" uid="uid://78rhors15sbh" path="res://Enemy/enemy.gd" id="1_mc60o"]
 [ext_resource type="Texture2D" uid="uid://bnq10d77kthvh" path="res://assets/blue-witch/B_witch_run.png" id="1_sxm34"]
-[ext_resource type="Script" path="res://hurt_box.gd" id="2_exd00"]
-[ext_resource type="Script" path="res://health.gd" id="4_djxjq"]
+[ext_resource type="Script" uid="uid://fk574lrgm0g8" path="res://hurt_box.gd" id="2_exd00"]
+[ext_resource type="Script" uid="uid://doo31ju5itfoh" path="res://health.gd" id="4_djxjq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hamc"]
 radius = 6.0

@@ -1,12 +1,12 @@
 [gd_scene load_steps=14 format=3 uid="uid://dc7a5wixcvv4x"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_b555d"]
+[ext_resource type="Script" uid="uid://cm3txe6l0lu4j" path="res://player/player.gd" id="1_b555d"]
 [ext_resource type="Texture2D" uid="uid://wsal0kll321t" path="res://player/Sprite/asl-sheet-col.png" id="2_7yoxw"]
-[ext_resource type="Script" path="res://player/Scripts/state_machine.gd" id="3_geupc"]
-[ext_resource type="Script" path="res://player/idle.gd" id="4_hjf3x"]
-[ext_resource type="Script" path="res://player/Scripts/walk.gd" id="5_s6wi1"]
-[ext_resource type="Script" path="res://player/jump.gd" id="6_dg0n0"]
-[ext_resource type="Script" path="res://player/fall.gd" id="7_vmbab"]
+[ext_resource type="Script" uid="uid://dyvxkawrufmoo" path="res://player/Scripts/state_machine.gd" id="3_geupc"]
+[ext_resource type="Script" uid="uid://dn30braot1ojl" path="res://player/idle.gd" id="4_hjf3x"]
+[ext_resource type="Script" uid="uid://bkiccu7rhstnt" path="res://player/Scripts/walk.gd" id="5_s6wi1"]
+[ext_resource type="Script" uid="uid://b0c8xbaggckrn" path="res://player/jump.gd" id="6_dg0n0"]
+[ext_resource type="Script" uid="uid://cp48oc3vsl0hh" path="res://player/fall.gd" id="7_vmbab"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_omm3f"]
 radius = 6.99944
@@ -77,10 +77,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n44eu"]
 _data = {
-"RESET": SubResource("Animation_ske0g"),
-"Run": SubResource("Animation_6fpvw"),
-"idle": SubResource("Animation_pr3ng"),
-"jump": SubResource("Animation_pm3y4")
+&"RESET": SubResource("Animation_ske0g"),
+&"Run": SubResource("Animation_6fpvw"),
+&"idle": SubResource("Animation_pr3ng"),
+&"jump": SubResource("Animation_pm3y4")
 }
 
 [node name="player" type="CharacterBody2D"]
