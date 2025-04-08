@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://0x6ebtshd4md"]
+
+[ext_resource type="Script" uid="uid://s7o58tmkmxb7" path="res://gun/scripts/normal_projectile.gd" id="1_pdmcf"]
+[ext_resource type="Resource" uid="uid://comwacm33520d" path="res://gun/scripts/normal_projectile.tres" id="2_ufpop"]
+[ext_resource type="Texture2D" uid="uid://t33gsl8lnce1" path="res://gun/gun/pixil-frame-0 (2).png" id="3_87dn3"]
+
+[node name="NormalProjectile" type="Node2D"]
+script = ExtResource("1_pdmcf")
+attribute = ExtResource("2_ufpop")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.278431, 0.756863, 1)
+position = Vector2(568, 340)
+texture = ExtResource("3_87dn3")

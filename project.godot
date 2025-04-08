@@ -17,8 +17,10 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=320
-window/size/viewport_height=160
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1080
+window/size/window_height_override=720
 window/stretch/mode="viewport"
 
 [dotnet]
@@ -93,6 +95,7 @@ power3={
 2d_physics/layer_7="player_hurt"
 2d_physics/layer_8="enemy_hit"
 2d_physics/layer_9="enemy_hurt"
+2d_physics/layer_10="Bounds"
 
 [rendering]
 

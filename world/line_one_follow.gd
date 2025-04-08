@@ -11,7 +11,7 @@ var enemies = []
 var speed = 0.1
 
 var count = 0
-var limit = 5
+var limit = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	enemies.append(enemy1_tscn)

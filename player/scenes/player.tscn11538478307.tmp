@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dc7a5wixcvv4x"]
+[gd_scene load_steps=18 format=3 uid="uid://dc7a5wixcvv4x"]
 
 [ext_resource type="Script" uid="uid://baaa75gtxy0pk" path="res://player/states/player.gd" id="1_b555d"]
 [ext_resource type="Texture2D" uid="uid://wsal0kll321t" path="res://player/Sprite/asl-sheet-col.png" id="2_7yoxw"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://blxojp14rst46" path="res://player/states/jump.gd" id="6_dg0n0"]
 [ext_resource type="Script" uid="uid://m6g152pv2oja" path="res://player/states/fall.gd" id="7_vmbab"]
 [ext_resource type="PackedScene" uid="uid://cq7cgixja67yd" path="res://gun/scenes/gun.tscn" id="8_i3uoo"]
-[ext_resource type="Script" uid="uid://bkgawro508w7b" path="res://player/states/transition.gd" id="8_mgvvd"]
 [ext_resource type="PackedScene" uid="uid://bp6hp8jyxrs8m" path="res://gun/scenes/hurt_box.tscn" id="9_l5yb3"]
 [ext_resource type="PackedScene" uid="uid://c8iy16j2row0j" path="res://gun/scenes/health.tscn" id="10_nf2vp"]
 
@@ -128,20 +127,27 @@ one_shot = true
 script = ExtResource("3_geupc")
 starting_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk", "jump", "fall")]
 script = ExtResource("4_hjf3x")
+walk = NodePath("../Walk")
+jump = NodePath("../Jump")
+fall = NodePath("../Fall")
 
-[node name="Walk" type="Node" parent="StateMachine"]
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle", "jump", "fall")]
 script = ExtResource("5_s6wi1")
+idle = NodePath("../Idle")
+jump = NodePath("../Jump")
+fall = NodePath("../Fall")
 
-[node name="Jump" type="Node" parent="StateMachine"]
+[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk", "idle")]
 script = ExtResource("6_dg0n0")
+walk = NodePath("../Walk")
+idle = NodePath("../Idle")
 
-[node name="Fall" type="Node" parent="StateMachine"]
+[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk", "idle")]
 script = ExtResource("7_vmbab")
-
-[node name="Transition" type="Node" parent="StateMachine"]
-script = ExtResource("8_mgvvd")
+walk = NodePath("../Walk")
+idle = NodePath("../Idle")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {

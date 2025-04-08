@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://ddrtcu5kir18a"]
+
+[ext_resource type="Texture2D" uid="uid://gusnu2ivxvdo" path="res://menus/Art/Idle@4x.png" id="1_vmghn"]
+
+[resource]
+content_margin_bottom = 61.0
+texture = ExtResource("1_vmghn")
+texture_margin_left = 31.0
+texture_margin_top = 31.0
+texture_margin_right = 31.0

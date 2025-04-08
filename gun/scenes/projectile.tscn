@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://c13ohuchhijy5"]
+[gd_scene load_steps=8 format=3 uid="uid://c13ohuchhijy5"]
 
 [ext_resource type="Script" uid="uid://r04nxww5slqk" path="res://gun/scripts/projectile.gd" id="1_tmniv"]
-[ext_resource type="Texture2D" uid="uid://d3j8nc7txvbyt" path="res://gun/gun/Sprite-0001.png" id="2_ynfpl"]
 [ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/scenes/hit_box.tscn" id="3_o6mo3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgpo0"]
@@ -53,7 +52,6 @@ script = ExtResource("1_tmniv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0.501961, 1, 1)
-texture = ExtResource("2_ynfpl")
 hframes = 6
 
 [node name="Hitbox" parent="." instance=ExtResource("3_o6mo3")]
@@ -61,13 +59,13 @@ collision_layer = 32
 damage = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-visible = false
 position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_dgpo0")
+debug_color = Color(0.953888, 1.73271e-06, 0.551258, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_lga7k")
+&"": SubResource("AnimationLibrary_lga7k")
 }
 autoplay = "shoot"
 

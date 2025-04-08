@@ -8,4 +8,8 @@ scale = Vector2(0.8, 0.8)
 script = ExtResource("1_plyko")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(13, -5)
+position = Vector2(9.53674e-07, -4.76837e-07)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
