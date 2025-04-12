@@ -6,27 +6,7 @@ const BULLET = preload("res://gun/scenes/projectile.tscn")
 @onready var player: CharacterBody2D = $".."
 @onready var timer: Timer = $Timer
 
-#var gun_type: BaseProjectile
 var fire: bool = false
-#var projectile_color: Color 
-#var Normal: Dictionary = {
-	#"speed": 100,
-	#"range": 100,
-	#"random_range": 50,
-	#"damage": 1 
-#}
-#var Cinemenn: Dictionary = {
-	#"speed": 30,
-	#"range": 50,
-	#"random_range": 20,
-	#"damage": 2 
-#}
-#var Mint: Dictionary = {
-	#"speed": 200,
-	#"range": 150,
-	#"random_range": 10,
-	#"damage": 1 
-#}
 
 var power_select: BaseProjectile = preload("res://gun/scripts/normal_projectile.tres")
 
