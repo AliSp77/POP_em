@@ -1,14 +1,12 @@
-[gd_resource type="Resource" script_class="BaseProjectile" load_steps=3 format=3 uid="uid://comwacm33520d"]
+[gd_resource type="Resource" script_class="BaseProjectile" load_steps=2 format=3 uid="uid://comwacm33520d"]
 
 [ext_resource type="Script" uid="uid://bbh4tbku7tekc" path="res://gun/scripts/BaseProjectile.gd" id="1_fhn5r"]
-[ext_resource type="Texture2D" uid="uid://t33gsl8lnce1" path="res://gun/gun/pixil-frame-0 (2).png" id="2_1id83"]
 
 [resource]
 script = ExtResource("1_fhn5r")
 name = &"Normal"
-texture = ExtResource("2_1id83")
 color = Color(1, 0.278431, 0.756863, 1)
 damage = 1
-speed = 100
-range = 0
-random_range = 0
+speed = 400
+pop_range = 400
+viggle_power = 1

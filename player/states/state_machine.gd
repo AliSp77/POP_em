@@ -24,7 +24,7 @@ func init(parent: CharacterBody2D) -> void:
 
 # Change to the new state by first calling any exit logic on the current state.
 func change_state(new_state: State) -> void:
-	print("from: ",current_state.name, ", to: ", new_state.name)
+	#print("from: ",current_state.name, ", to: ", new_state.name)
 	if current_state == new_state:
 		return
 	current_state.exit()

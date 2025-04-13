@@ -1,31 +1,26 @@
 extends Node2D
 class_name Gun
 
-const BULLET = preload("res://gun/scenes/projectile.tscn")
-@onready var marker_2d: Marker2D = $Marker2D
-@onready var player: CharacterBody2D = $".."
+@export var Type: BaseProjectile
 @onready var timer: Timer = $Timer
-
-var fire: bool = false
-
-var power_select: BaseProjectile = preload("res://gun/scripts/normal_projectile.tres")
+@onready var marker: Marker2D = $Marker2D
+@export var parent: Player
 
 func _ready() -> void:
-	timer.wait_time = 1
-	timer.timeout.connect(_on_timeout)
+	timer.timeout.connect(fire_projectile)
+	timer.start()
+	print("timer started")
 
-func _process(delta: float) -> void:
-
-	if fire:
-		var bullet_instance = BULLET.instantiate()
-		get_tree().root.add_child(bullet_instance)
-		bullet_instance.start_pos = marker_2d.global_position.x
-		bullet_instance.direction_hit = player.scale[1]
-		bullet_instance.global_position = marker_2d.global_position
-		bullet_instance.ColorChange(power_select.color)
-		bullet_instance.power = power_select
-		bullet_instance.get_node("Hitbox").damage = power_select["damage"]
-		fire = false
-
-func _on_timeout():
-	fire = true
+func fire_projectile():
+	print("fire")
+	var projectile_scene = preload("res://gun/scenes/Projectile_Base.tscn")
+	var new_projectile = projectile_scene.instantiate()
+	new_projectile.direction = parent.weapon_direction
+	new_projectile.position = marker.global_position
+	new_projectile.speed = Type.speed
+	new_projectile.damage = Type.damage
+	new_projectile.projectile_color = Type.color
+	new_projectile.pop_range = Type.pop_range
+	new_projectile.viggle_power = Type.viggle_power
+	add_child(new_projectile)
+	

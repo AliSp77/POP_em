@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=4 uid="uid://n1oas22mem4g"]
+[gd_scene load_steps=23 format=4 uid="uid://n1oas22mem4g"]
 
 [ext_resource type="Script" uid="uid://de02nmxg27hhp" path="res://world/world.gd" id="1_gir40"]
 [ext_resource type="Texture2D" uid="uid://driyn5hssrbvt" path="res://assets/cp/cp/CP_V1.0.4.png" id="1_wr41b"]
 [ext_resource type="PackedScene" uid="uid://dc7a5wixcvv4x" path="res://player/scenes/player.tscn" id="2_l627i"]
 [ext_resource type="Script" uid="uid://1tgx5re3tw2b" path="res://world/canvas_layer.gd" id="4_pj4y3"]
 [ext_resource type="PackedScene" uid="uid://dtfy7ei8lby1v" path="res://menus/Scenes/paused_menu.tscn" id="7_k03n4"]
+[ext_resource type="PackedScene" uid="uid://duntynknfrmt7" path="res://Enemy/Dandon1/dandon1.tscn" id="9_4papg"]
 [ext_resource type="AudioStream" uid="uid://ddctoxyndt6ye" path="res://audio/themes/game_theme.mp3" id="9_gg4by"]
 [ext_resource type="Script" uid="uid://bxaw0vquo8sdd" path="res://world/audio_stream_player.gd" id="9_rjlrx"]
 [ext_resource type="FontFile" uid="uid://bwow6x8qqq0yl" path="res://menus/Scenes/PressStart2P-Regular.ttf" id="9_wdt2c"]
@@ -1865,6 +1866,7 @@ distance = -162.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ov2xu"]
 normal = Vector2(0, 1)
+distance = 32.0
 
 [node name="world" type="Node2D"]
 script = ExtResource("1_gir40")
@@ -1957,5 +1959,8 @@ shape = SubResource("WorldBoundaryShape2D_fyhu2")
 
 [node name="Top Bound" type="CollisionShape2D" parent="WorldBoundry"]
 shape = SubResource("WorldBoundaryShape2D_ov2xu")
+
+[node name="dandon1" parent="." instance=ExtResource("9_4papg")]
+position = Vector2(208, 102)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

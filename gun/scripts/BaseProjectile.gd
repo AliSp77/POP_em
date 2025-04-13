@@ -9,8 +9,8 @@ class_name	BaseProjectile
 @export_category("Attribute")
 @export var damage: int
 @export var speed: int
-@export var range: int
-@export var random_range: int
+@export var pop_range: int
+@export var viggle_power: int
 
 func apply_upgrade():
 	# upgrade logic

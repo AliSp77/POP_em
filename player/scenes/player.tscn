@@ -153,9 +153,8 @@ texture_filter = 1
 zoom = Vector2(6, 6)
 position_smoothing_enabled = true
 
-[node name="Pistol" parent="." instance=ExtResource("8_i3uoo")]
-z_index = 1
-position = Vector2(8, 2.38419e-07)
+[node name="Pistol" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("8_i3uoo")]
+parent = NodePath("..")
 
 [node name="HurtBox" parent="." node_paths=PackedStringArray("health") instance=ExtResource("9_l5yb3")]
 collision_mask = 128
@@ -178,3 +177,5 @@ one_shot = true
 [connection signal="DamageTaken" from="HurtBox" to="." method="_on_hurt_box_damage_taken"]
 [connection signal="HealthDepleted" from="HurtBox" to="." method="_on_hurt_box_health_depleted"]
 [connection signal="timeout" from="invulner" to="." method="_on_invulner_timeout"]
+
+[editable path="Pistol"]
