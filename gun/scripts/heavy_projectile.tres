@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BaseProjectile" load_steps=2 format=3 uid="uid://c0sdsbluyg0pa"]
+
+[ext_resource type="Script" uid="uid://bbh4tbku7tekc" path="res://gun/scripts/BaseProjectile.gd" id="1_bmnde"]
+
+[resource]
+script = ExtResource("1_bmnde")
+name = &"Heavy"
+color = Color(0.326883, 3.39923e-07, 1.20327e-07, 1)
+damage = 2
+speed = 200
+pop_range = 100
+viggle_power = 2
+metadata/_custom_type_script = "uid://bbh4tbku7tekc"

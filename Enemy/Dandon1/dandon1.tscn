@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://duntynknfrmt7"]
+[gd_scene load_steps=9 format=3 uid="uid://duntynknfrmt7"]
 
 [ext_resource type="Script" uid="uid://ls0iihvm5ex6" path="res://Enemy/Dandon1/dandon_1.gd" id="1_tfuj5"]
 [ext_resource type="Texture2D" uid="uid://duvtc0cerfhi0" path="res://Enemy/new_sprite/Norm.png" id="2_3wb7f"]
 [ext_resource type="Script" uid="uid://dckpntwcw0q4p" path="res://hurt_box.gd" id="3_ecdui"]
 [ext_resource type="Script" uid="uid://d0xyb7vt5tqhu" path="res://health.gd" id="4_jifag"]
 [ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/scenes/hit_box.tscn" id="5_4bdkd"]
+[ext_resource type="Script" uid="uid://dhpdyhv5m2fvd" path="res://GUI/popup_location.gd" id="6_vrhxn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hamc"]
 radius = 7.0
@@ -48,3 +49,7 @@ collision_layer = 128
 visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0hamc")
+
+[node name="PopupLocation" type="Marker2D" parent="."]
+position = Vector2(0, -18)
+script = ExtResource("6_vrhxn")

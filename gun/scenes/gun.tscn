@@ -1,15 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cq7cgixja67yd"]
+[gd_scene load_steps=3 format=3 uid="uid://cq7cgixja67yd"]
 
 [ext_resource type="Script" uid="uid://cjdput3p34y26" path="res://gun/scripts/gun.gd" id="1_plyko"]
+[ext_resource type="Resource" uid="uid://comwacm33520d" path="res://gun/scripts/normal_projectile.tres" id="2_1uvr7"]
 
 [node name="Pistol" type="Node2D"]
 modulate = Color(1, 1, 0, 1)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_plyko")
+Type = ExtResource("2_1uvr7")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(9.53674e-07, -4.76837e-07)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
-autostart = true
