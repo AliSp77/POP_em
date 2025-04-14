@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://n1oas22mem4g"]
+[gd_scene load_steps=21 format=4 uid="uid://n1oas22mem4g"]
 
 [ext_resource type="Script" uid="uid://de02nmxg27hhp" path="res://world/world.gd" id="1_so8cm"]
 [ext_resource type="Texture2D" uid="uid://driyn5hssrbvt" path="res://assets/cp/cp/CP_V1.0.4.png" id="2_xdskg"]
@@ -6,9 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dtfy7ei8lby1v" path="res://menus/Scenes/paused_menu.tscn" id="4_6fks3"]
 [ext_resource type="Script" uid="uid://1tgx5re3tw2b" path="res://world/canvas_layer.gd" id="5_81xni"]
 [ext_resource type="FontFile" uid="uid://bwow6x8qqq0yl" path="res://menus/Scenes/PressStart2P-Regular.ttf" id="6_au0sj"]
-[ext_resource type="AudioStream" uid="uid://ddctoxyndt6ye" path="res://audio/themes/game_theme.mp3" id="7_10ra6"]
-[ext_resource type="Script" uid="uid://bxaw0vquo8sdd" path="res://world/audio_stream_player.gd" id="8_7wv1f"]
-[ext_resource type="PackedScene" uid="uid://duntynknfrmt7" path="res://Enemy/Dandon1/dandon1.tscn" id="9_rmgck"]
+[ext_resource type="PackedScene" uid="uid://dtbeolgufqkru" path="res://Enemy/normal-enemy.tscn" id="7_51f3f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1jqi"]
 texture = ExtResource("2_xdskg")
@@ -1938,10 +1936,6 @@ label_settings = SubResource("LabelSettings_otk6m")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_10ra6")
-script = ExtResource("8_7wv1f")
-
 [node name="WorldBoundry" type="StaticBody2D" parent="."]
 position = Vector2(0, -1)
 collision_layer = 512
@@ -1961,19 +1955,7 @@ shape = SubResource("WorldBoundaryShape2D_fyhu2")
 [node name="Top Bound" type="CollisionShape2D" parent="WorldBoundry"]
 shape = SubResource("WorldBoundaryShape2D_ov2xu")
 
-[node name="dandon1" parent="." instance=ExtResource("9_rmgck")]
-position = Vector2(219, 100)
-
-[node name="dandon2" parent="." instance=ExtResource("9_rmgck")]
-position = Vector2(253, 100)
-
-[node name="dandon3" parent="." instance=ExtResource("9_rmgck")]
-position = Vector2(302, 100)
-
-[node name="dandon4" parent="." instance=ExtResource("9_rmgck")]
-position = Vector2(292, 100)
-
-[node name="dandon5" parent="." instance=ExtResource("9_rmgck")]
-position = Vector2(297, 100)
+[node name="Normal-enemy" parent="." instance=ExtResource("7_51f3f")]
+position = Vector2(131, 103)
 
 [connection signal="body_entered" from="Finishline" to="." method="_on_area_2d_body_entered"]

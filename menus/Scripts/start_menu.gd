@@ -5,6 +5,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AudioPlayer.start_music()
 	bg.modulate.a = 0.0
 	panel.modulate.a = 0.0
 	var tween = self.create_tween()

@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://dtbeolgufqkru"]
+
+[ext_resource type="Script" uid="uid://cwkbkukicgu4i" path="res://Enemy/normal_enemy.gd" id="1_gfm5t"]
+[ext_resource type="Script" uid="uid://dckpntwcw0q4p" path="res://hurt_box.gd" id="2_a4yds"]
+[ext_resource type="Texture2D" uid="uid://duvtc0cerfhi0" path="res://Enemy/new_sprite/Norm.png" id="2_cx3wg"]
+[ext_resource type="Resource" uid="uid://dbx20qqf3u1cy" path="res://Enemy/normal_enemy.tres" id="2_e610q"]
+[ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/scenes/hit_box.tscn" id="4_e610q"]
+[ext_resource type="Script" uid="uid://dhpdyhv5m2fvd" path="res://GUI/popup_location.gd" id="5_u017r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14vw6"]
+radius = 7.0
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rlr3f"]
+radius = 9.0
+
+[sub_resource type="Animation" id="Animation_vrhxn"]
+resource_name = "Ouch"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(0.902064, 0, 0.137766, 1), Color(1, 1, 1, 1), Color(0.902064, 0, 0.137766, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lgnly"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rse7d"]
+_data = {
+&"Ouch": SubResource("Animation_vrhxn"),
+&"RESET": SubResource("Animation_lgnly")
+}
+
+[node name="Normal-enemy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_gfm5t")
+type = ExtResource("2_e610q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cx3wg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_14vw6")
+debug_color = Color(1.05888e-06, 0.650034, 0.115851, 0.42)
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_a4yds")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+visible = false
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_rlr3f")
+debug_color = Color(0.977512, 0, 0.403538, 0.42)
+
+[node name="Hitbox" parent="." instance=ExtResource("4_e610q")]
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+visible = false
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_14vw6")
+
+[node name="PopupLocation" type="Marker2D" parent="."]
+position = Vector2(0, -18)
+script = ExtResource("5_u017r")
+
+[node name="VFX" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rse7d")
+}

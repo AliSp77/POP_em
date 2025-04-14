@@ -19,6 +19,7 @@ func get_screens() -> void:
 		print(screen)
 
 func _ready() -> void:
+	AudioPlayer.start_music()
 	get_screens()
 	fade()
 	

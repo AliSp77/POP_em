@@ -5,12 +5,13 @@ extends Node2D
 var check_spawn_enemy: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	AudioPlayer.normal_theme()
+	pass 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
-	if get_tree().get_nodes_in_group("enemies").size() == 3:
+	print()
+	if get_tree().get_nodes_in_group("enemies").size() > 0:
 		check_spawn_enemy = true
 	if get_tree().get_nodes_in_group("enemies").size() == 0 and check_spawn_enemy:
 		get_node("player").animation.play("jump")
