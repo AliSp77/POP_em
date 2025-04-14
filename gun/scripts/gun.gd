@@ -9,10 +9,8 @@ class_name Gun
 func _ready() -> void:
 	timer.timeout.connect(fire_projectile)
 	timer.start()
-	print("timer started")
 
 func fire_projectile():
-	print("fire")
 	var projectile_scene = preload("res://gun/scenes/Projectile_Base.tscn")
 	var new_projectile = projectile_scene.instantiate()
 	new_projectile.direction = parent.weapon_direction

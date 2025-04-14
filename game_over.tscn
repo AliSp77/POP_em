@@ -4,8 +4,9 @@
 [ext_resource type="Script" uid="uid://d28mt6uyun04r" path="res://game_over.gd" id="1_xw25k"]
 [ext_resource type="Theme" uid="uid://d2w0dv6jaikcv" path="res://start_menu.tres" id="3_6nhif"]
 
-[sub_resource type="SystemFont" id="SystemFont_evjs7"]
-font_names = PackedStringArray("Upheaval TT (BRK)")
+[sub_resource type="LabelSettings" id="LabelSettings_ccer4"]
+font_size = 180
+font_color = Color(0.733333, 0, 0.407843, 1)
 
 [node name="Control" type="Control"]
 process_mode = 3
@@ -41,19 +42,13 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.705882, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_evjs7")
-theme_override_font_sizes/font_size = 39
+theme = ExtResource("3_6nhif")
 text = "GAME OVER"
+label_settings = SubResource("LabelSettings_ccer4")
 
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_6nhif")
-theme_override_colors/font_hover_color = Color(0.854902, 0.0509804, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.368725, 0.0215, 0.43, 1)
-theme_override_colors/font_color = Color(0, 0.15, 1, 1)
-theme_override_font_sizes/font_size = 20
 text = "Menu"
 icon_alignment = 1
 

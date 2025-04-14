@@ -1,9 +1,11 @@
 extends Marker2D
 
 const	popup_display = preload("res://GUI/popup_display.tscn")
+@onready var hurt_box: HurtBox = $"../HurtBox"
 
 func _ready() -> void:
 	randomize()
+	hurt_box.DamageTaken.connect(set_text)
 	
 var printed_text: String: set = set_text
 
@@ -26,5 +28,7 @@ func _input(event: InputEvent) -> void:
 		popup("shit")
 
 func set_text(value):
+	if typeof(value) != 4:
+		value = str(value)
 	printed_text = value
 	popup(value)

@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://daj00w32wqxmy"]
+
+[ext_resource type="Script" uid="uid://kijbm7baowfv" path="res://GUI/SplashScreen/splash_screen.gd" id="1_kwq0k"]
+[ext_resource type="Texture2D" uid="uid://bsk4nj7j4n81a" path="res://GUI/SplashScreen/pink-dark (1).png" id="1_vga7v"]
+[ext_resource type="Texture2D" uid="uid://d1604whfgfbk7" path="res://GUI/SplashScreen/218030055.png" id="2_kwq0k"]
+
+[node name="SplashScreen" type="Control" node_paths=PackedStringArray("splash_screen_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_kwq0k")
+splash_screen_container = NodePath("Container")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="Container" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Screen1" type="TextureRect" parent="Container"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_vga7v")
+expand_mode = 1
+
+[node name="Screen2" type="TextureRect" parent="Container"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+texture = ExtResource("2_kwq0k")
+expand_mode = 1
+stretch_mode = 6

@@ -48,7 +48,7 @@ var gum_or_Teeth_dialouge_order = false
 	#update_text()
 
 @onready var dialogue_panel = $messageBox
-@onready var dialogue_label = $messageBox/Label
+@onready var dialogue_label = $messageBox/CenterContainer/Label
 
 # List of Persian dialogues
 

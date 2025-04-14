@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://djw1xrct8w5iv"]
+[gd_scene load_steps=6 format=3 uid="uid://djw1xrct8w5iv"]
 
 [ext_resource type="Script" uid="uid://d28mt6uyun04r" path="res://game_over.gd" id="1_6rr8o"]
 [ext_resource type="Texture2D" uid="uid://bsbkxfcq4st7l" path="res://menus/Art/bg.jpg" id="2_irvh7"]
@@ -6,6 +6,10 @@
 
 [sub_resource type="SystemFont" id="SystemFont_evjs7"]
 font_names = PackedStringArray("Upheaval TT (BRK)")
+
+[sub_resource type="LabelSettings" id="LabelSettings_tmki8"]
+font_size = 216
+font_color = Color(0.733333, 0, 0.407843, 1)
 
 [node name="Control" type="Control"]
 process_mode = 3
@@ -45,15 +49,15 @@ theme_override_colors/font_color = Color(0.705882, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_evjs7")
 theme_override_font_sizes/font_size = 39
-text = "You win!!"
+text = "YOU WIN!!"
+label_settings = SubResource("LabelSettings_tmki8")
 
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_7mkdu")
 theme_override_colors/font_hover_color = Color(0.854902, 0.0509804, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.368725, 0.0215, 0.43, 1)
 theme_override_colors/font_color = Color(0, 0.15, 1, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_pressed_color = Color(0.368725, 0.0215, 0.43, 1)
 text = "Menu"
 icon_alignment = 1
 

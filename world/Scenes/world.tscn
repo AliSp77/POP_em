@@ -1,17 +1,17 @@
 [gd_scene load_steps=23 format=4 uid="uid://n1oas22mem4g"]
 
-[ext_resource type="Script" uid="uid://de02nmxg27hhp" path="res://world/world.gd" id="1_gir40"]
-[ext_resource type="Texture2D" uid="uid://driyn5hssrbvt" path="res://assets/cp/cp/CP_V1.0.4.png" id="1_wr41b"]
-[ext_resource type="PackedScene" uid="uid://dc7a5wixcvv4x" path="res://player/scenes/player.tscn" id="2_l627i"]
-[ext_resource type="Script" uid="uid://1tgx5re3tw2b" path="res://world/canvas_layer.gd" id="4_pj4y3"]
-[ext_resource type="PackedScene" uid="uid://dtfy7ei8lby1v" path="res://menus/Scenes/paused_menu.tscn" id="7_k03n4"]
-[ext_resource type="PackedScene" uid="uid://duntynknfrmt7" path="res://Enemy/Dandon1/dandon1.tscn" id="9_4papg"]
-[ext_resource type="AudioStream" uid="uid://ddctoxyndt6ye" path="res://audio/themes/game_theme.mp3" id="9_gg4by"]
-[ext_resource type="Script" uid="uid://bxaw0vquo8sdd" path="res://world/audio_stream_player.gd" id="9_rjlrx"]
-[ext_resource type="FontFile" uid="uid://bwow6x8qqq0yl" path="res://menus/Scenes/PressStart2P-Regular.ttf" id="9_wdt2c"]
+[ext_resource type="Script" uid="uid://de02nmxg27hhp" path="res://world/world.gd" id="1_so8cm"]
+[ext_resource type="Texture2D" uid="uid://driyn5hssrbvt" path="res://assets/cp/cp/CP_V1.0.4.png" id="2_xdskg"]
+[ext_resource type="PackedScene" uid="uid://dc7a5wixcvv4x" path="res://player/scenes/player.tscn" id="3_mpotj"]
+[ext_resource type="PackedScene" uid="uid://dtfy7ei8lby1v" path="res://menus/Scenes/paused_menu.tscn" id="4_6fks3"]
+[ext_resource type="Script" uid="uid://1tgx5re3tw2b" path="res://world/canvas_layer.gd" id="5_81xni"]
+[ext_resource type="FontFile" uid="uid://bwow6x8qqq0yl" path="res://menus/Scenes/PressStart2P-Regular.ttf" id="6_au0sj"]
+[ext_resource type="AudioStream" uid="uid://ddctoxyndt6ye" path="res://audio/themes/game_theme.mp3" id="7_10ra6"]
+[ext_resource type="Script" uid="uid://bxaw0vquo8sdd" path="res://world/audio_stream_player.gd" id="8_7wv1f"]
+[ext_resource type="PackedScene" uid="uid://duntynknfrmt7" path="res://Enemy/Dandon1/dandon1.tscn" id="9_rmgck"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1jqi"]
-texture = ExtResource("1_wr41b")
+texture = ExtResource("2_xdskg")
 2:2/0 = 0
 3:2/0 = 0
 4:2/0 = 0
@@ -618,7 +618,7 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_y1jqi")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6nuq"]
-texture = ExtResource("1_wr41b")
+texture = ExtResource("2_xdskg")
 2:2/0 = 0
 3:2/0 = 0
 4:2/0 = 0
@@ -1229,7 +1229,7 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_l6nuq")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fwva0"]
-texture = ExtResource("1_wr41b")
+texture = ExtResource("2_xdskg")
 2:2/0 = 0
 3:2/0 = 0
 4:2/0 = 0
@@ -1849,8 +1849,8 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_otk6m"]
-font = ExtResource("9_wdt2c")
-font_size = 8
+font = ExtResource("6_au0sj")
+font_size = 40
 font_color = Color(0.6956, 0.104, 0.8, 1)
 shadow_color = Color(0, 0, 0, 1)
 
@@ -1869,7 +1869,7 @@ normal = Vector2(0, 1)
 distance = 32.0
 
 [node name="world" type="Node2D"]
-script = ExtResource("1_gir40")
+script = ExtResource("1_so8cm")
 
 [node name="TileMap" type="Node2D" parent="."]
 
@@ -1886,60 +1886,61 @@ tile_set = SubResource("TileSet_svclo")
 tile_map_data = PackedByteArray("AAASAAkAAAAYACAAAAASAAoAAAAYACEAAAAMAAkAAAAaACAAAAAMAAoAAAAaACEAAAAHAAkAAAAYACAAAAAHAAoAAAAYACEAAAACAAkAAAAaACAAAAACAAoAAAAaACEAAAATAAkAAAAaAB0AAAATAAoAAAAaAB4AAAATAAAAAAAaAB0AAAATAAEAAAAaAB4AAAARAAoAAAAfAAgAAAALAAoAAAAfAAgAAAAGAAoAAAAfAAgAAAABAAoAAAAfAAgAAAD6//7/AAARAAUAAAD6////AAARAAYAAAD6/wAAAAARAAcAAAD7//v/AAASAAIAAAD7//z/AAASAAMAAAD7//3/AAASAAQAAAD7//7/AAASAAIAAAD7////AAASAAMAAAD7/wAAAAASAAQAAAD8//v/AAATAAIAAAD8//z/AAATAAMAAAD8//3/AAATAAQAAAD8//7/AAATAAIAAAD8////AAATAAMAAAD8/wAAAAATAAQAAAD9//v/AAAUAAIAAAD9//z/AAAUAAMAAAD9//3/AAAUAAQAAAD9//7/AAAUAAIAAAD9////AAAUAAMAAAD9/wAAAAAUAAQAAAD+//7/AAAVAAUAAAD+////AAAVAAYAAAD+/wAAAAAVAAcAAAD6/wEAAAARAAUAAAD6/wIAAAARAAYAAAD6/wMAAAARAAcAAAD7/wEAAAASAAIAAAD7/wIAAAASAAMAAAD7/wMAAAASAAQAAAD8/wEAAAATAAIAAAD8/wIAAAATAAMAAAD8/wMAAAATAAQAAAD9/wEAAAAUAAIAAAD9/wIAAAAUAAMAAAD9/wMAAAAUAAQAAAD+/wEAAAAVAAUAAAD+/wIAAAAVAAYAAAD+/wMAAAAVAAcAAAD6/wcAAAARAAUAAAD6/wgAAAARAAYAAAD6/wkAAAARAAcAAAD7/wQAAAASAAUAAAD7/wUAAAASAAYAAAD7/wYAAAASAAcAAAD7/wcAAAASAAUAAAD7/wgAAAASAAYAAAD7/wkAAAASAAcAAAD8/wQAAAATAAUAAAD8/wUAAAATAAYAAAD8/wYAAAATAAcAAAD8/wcAAAATAAUAAAD8/wgAAAATAAYAAAD8/wkAAAATAAcAAAD9/wQAAAAUAAUAAAD9/wUAAAAUAAYAAAD9/wYAAAAUAAcAAAD9/wcAAAAUAAUAAAD9/wgAAAAUAAYAAAD9/wkAAAAUAAcAAAD+/wcAAAAVAAUAAAD+/wgAAAAVAAYAAAD+/wkAAAAVAAcAAAD6/wQAAAARAAUAAAD6/wUAAAARAAYAAAD6/wYAAAARAAcAAAD+/wQAAAAVAAUAAAD+/wUAAAAVAAYAAAD+/wYAAAAVAAcAAAA=")
 tile_set = SubResource("TileSet_3dhv6")
 
-[node name="player" parent="." instance=ExtResource("2_l627i")]
+[node name="player" parent="." instance=ExtResource("3_mpotj")]
 z_index = 5
 position = Vector2(72, 106)
 
 [node name="MenuCanvas" type="CanvasLayer" parent="."]
 
-[node name="PausedMenu" parent="MenuCanvas" instance=ExtResource("7_k03n4")]
+[node name="PausedMenu" parent="MenuCanvas" instance=ExtResource("4_6fks3")]
 
-[node name="Area2D" type="Area2D" parent="."]
-visible = false
+[node name="Finishline" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finishline"]
 position = Vector2(0, 85)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_wblu7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-script = ExtResource("4_pj4y3")
+script = ExtResource("5_81xni")
 
 [node name="messageBox" type="Panel" parent="CanvasLayer"]
+custom_minimum_size = Vector2(1000, 0)
 layout_direction = 2
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = -19.0
-offset_right = -32.0
-offset_bottom = -2.0
+offset_left = 15.0
+offset_top = -92.0
+offset_right = -29.0
+offset_bottom = -33.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7ep36")
 
-[node name="Label" type="Label" parent="CanvasLayer/messageBox"]
-layout_direction = 2
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/messageBox"]
+custom_minimum_size = Vector2(1000, 0)
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -11.5
-offset_bottom = 11.5
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/messageBox/CenterContainer"]
+layout_direction = 2
+layout_mode = 2
+text = "sample"
 label_settings = SubResource("LabelSettings_otk6m")
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_gg4by")
-script = ExtResource("9_rjlrx")
+stream = ExtResource("7_10ra6")
+script = ExtResource("8_7wv1f")
 
 [node name="WorldBoundry" type="StaticBody2D" parent="."]
 position = Vector2(0, -1)
@@ -1960,7 +1961,19 @@ shape = SubResource("WorldBoundaryShape2D_fyhu2")
 [node name="Top Bound" type="CollisionShape2D" parent="WorldBoundry"]
 shape = SubResource("WorldBoundaryShape2D_ov2xu")
 
-[node name="dandon1" parent="." instance=ExtResource("9_4papg")]
-position = Vector2(208, 102)
+[node name="dandon1" parent="." instance=ExtResource("9_rmgck")]
+position = Vector2(219, 100)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="dandon2" parent="." instance=ExtResource("9_rmgck")]
+position = Vector2(253, 100)
+
+[node name="dandon3" parent="." instance=ExtResource("9_rmgck")]
+position = Vector2(302, 100)
+
+[node name="dandon4" parent="." instance=ExtResource("9_rmgck")]
+position = Vector2(292, 100)
+
+[node name="dandon5" parent="." instance=ExtResource("9_rmgck")]
+position = Vector2(297, 100)
+
+[connection signal="body_entered" from="Finishline" to="." method="_on_area_2d_body_entered"]
