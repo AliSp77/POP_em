@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://duntynknfrmt7"]
+
+[ext_resource type="Script" uid="uid://ls0iihvm5ex6" path="res://Enemy/Dandon1/dandon_1.gd" id="1_tfuj5"]
+[ext_resource type="Texture2D" uid="uid://duvtc0cerfhi0" path="res://Enemy/new_sprite/Norm.png" id="2_3wb7f"]
+[ext_resource type="Script" uid="uid://dckpntwcw0q4p" path="res://hurt_box.gd" id="3_ecdui"]
+[ext_resource type="Script" uid="uid://d0xyb7vt5tqhu" path="res://health.gd" id="4_jifag"]
+[ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/scenes/hit_box.tscn" id="5_4bdkd"]
+[ext_resource type="Script" uid="uid://dhpdyhv5m2fvd" path="res://GUI/popup_location.gd" id="6_vrhxn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hamc"]
+radius = 7.0
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hc7eh"]
+radius = 9.0
+
+[node name="dandon1" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_tfuj5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3wb7f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_0hamc")
+debug_color = Color(1.05888e-06, 0.650034, 0.115851, 0.42)
+
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("3_ecdui")
+health = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+visible = false
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_hc7eh")
+debug_color = Color(0.977512, 0, 0.403538, 0.42)
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("4_jifag")
+health = 5.0
+
+[node name="Hitbox" parent="." instance=ExtResource("5_4bdkd")]
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+visible = false
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0hamc")
+
+[node name="PopupLocation" type="Marker2D" parent="."]
+position = Vector2(0, -18)
+script = ExtResource("6_vrhxn")

@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cw3oejp7a16ss" path="res://icon.svg" id="1_8avjb"]
 [ext_resource type="Script" uid="uid://cwqp0j2erxjp6" path="res://world/enemy.gd" id="2_fwh02"]
-[ext_resource type="PackedScene" uid="uid://bp6hp8jyxrs8m" path="res://gun/hurt_box.tscn" id="3_1ddkb"]
-[ext_resource type="PackedScene" uid="uid://c8iy16j2row0j" path="res://gun/health.tscn" id="4_i2paa"]
+[ext_resource type="PackedScene" uid="uid://bp6hp8jyxrs8m" path="res://gun/scenes/hurt_box.tscn" id="3_1ddkb"]
+[ext_resource type="PackedScene" uid="uid://c8iy16j2row0j" path="res://gun/scenes/health.tscn" id="4_i2paa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lagsm"]
 size = Vector2(120, 120)

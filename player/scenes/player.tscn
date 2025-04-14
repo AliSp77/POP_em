@@ -1,0 +1,181 @@
+[gd_scene load_steps=19 format=3 uid="uid://dc7a5wixcvv4x"]
+
+[ext_resource type="Script" uid="uid://baaa75gtxy0pk" path="res://player/states/player.gd" id="1_b555d"]
+[ext_resource type="Texture2D" uid="uid://wsal0kll321t" path="res://player/Sprite/asl-sheet-col.png" id="2_7yoxw"]
+[ext_resource type="Script" uid="uid://cgfs402qhwegj" path="res://player/states/state_machine.gd" id="3_geupc"]
+[ext_resource type="Script" uid="uid://0f30wp7sw761" path="res://player/states/idle.gd" id="4_hjf3x"]
+[ext_resource type="Script" uid="uid://ds7cc3g3758t7" path="res://player/states/walk.gd" id="5_s6wi1"]
+[ext_resource type="Script" uid="uid://blxojp14rst46" path="res://player/states/jump.gd" id="6_dg0n0"]
+[ext_resource type="Script" uid="uid://m6g152pv2oja" path="res://player/states/fall.gd" id="7_vmbab"]
+[ext_resource type="PackedScene" uid="uid://cq7cgixja67yd" path="res://gun/scenes/gun.tscn" id="8_i3uoo"]
+[ext_resource type="Script" uid="uid://bkgawro508w7b" path="res://player/states/transition.gd" id="8_mgvvd"]
+[ext_resource type="PackedScene" uid="uid://bp6hp8jyxrs8m" path="res://gun/scenes/hurt_box.tscn" id="9_l5yb3"]
+[ext_resource type="PackedScene" uid="uid://c8iy16j2row0j" path="res://gun/scenes/health.tscn" id="10_nf2vp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_omm3f"]
+radius = 6.99944
+height = 25.9979
+
+[sub_resource type="Animation" id="Animation_ske0g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6fpvw"]
+resource_name = "Run"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 10]
+}
+
+[sub_resource type="Animation" id="Animation_pr3ng"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [11, 18]
+}
+
+[sub_resource type="Animation" id="Animation_pm3y4"]
+resource_name = "jump"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [34, 39]
+}
+
+[sub_resource type="Animation" id="Animation_yakp4"]
+resource_name = "ouch"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [34, 33, 34]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n44eu"]
+_data = {
+&"RESET": SubResource("Animation_ske0g"),
+&"Run": SubResource("Animation_6fpvw"),
+&"idle": SubResource("Animation_pr3ng"),
+&"jump": SubResource("Animation_pm3y4"),
+&"ouch": SubResource("Animation_yakp4")
+}
+
+[node name="player" type="CharacterBody2D"]
+collision_mask = 540
+platform_floor_layers = 4294967041
+script = ExtResource("1_b555d")
+
+[node name="character" type="Sprite2D" parent="."]
+position = Vector2(-1, 19)
+texture = ExtResource("2_7yoxw")
+offset = Vector2(0, -25)
+hframes = 41
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 1)
+rotation = 4.72509
+shape = SubResource("CapsuleShape2D_omm3f")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("3_geupc")
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_hjf3x")
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("5_s6wi1")
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource("6_dg0n0")
+
+[node name="Fall" type="Node" parent="StateMachine"]
+script = ExtResource("7_vmbab")
+
+[node name="Transition" type="Node" parent="StateMachine"]
+script = ExtResource("8_mgvvd")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_n44eu")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+texture_filter = 1
+zoom = Vector2(6, 6)
+position_smoothing_enabled = true
+
+[node name="Pistol" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("8_i3uoo")]
+parent = NodePath("..")
+
+[node name="HurtBox" parent="." node_paths=PackedStringArray("health") instance=ExtResource("9_l5yb3")]
+collision_mask = 128
+health = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+visible = false
+position = Vector2(2, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_omm3f")
+
+[node name="Health" parent="." instance=ExtResource("10_nf2vp")]
+health = 10.0
+
+[node name="invulner" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="DamageTaken" from="HurtBox" to="." method="_on_hurt_box_damage_taken"]
+[connection signal="HealthDepleted" from="HurtBox" to="." method="_on_hurt_box_health_depleted"]
+[connection signal="timeout" from="invulner" to="." method="_on_invulner_timeout"]
+
+[editable path="Pistol"]
