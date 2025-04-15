@@ -15,18 +15,15 @@ func _play_music(music: AudioStream, volume:= 0):
 	start_volume()
 
 func start_volume():
-	print("going up")
 	var tween = create_tween()
 	tween.tween_method(set_volume_db, -80, 0, 1)
 	await tween.finished
 	return
 
 func finish_volume():
-	print("going down ", volume_db)
 	var tween = create_tween()
 	tween.tween_method(set_volume_db, 0, -80, 1)
 	await tween.finished
-	print("went down ", volume_db)
 	return
 
 func normal_theme():

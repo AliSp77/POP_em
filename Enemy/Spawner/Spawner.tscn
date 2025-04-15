@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://byefpnctw8avy"]
+
+[ext_resource type="Script" uid="uid://ymre743pgmlu" path="res://Enemy/Spawner/spawner.gd" id="1_5ds00"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_5ds00")
+max_spawn = 10
+
+[node name="SpawnTimer" type="Timer" parent="."]
