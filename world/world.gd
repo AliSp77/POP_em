@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var area_2d: Area2D = $Finishline
-@onready var enemy_count: Label = $"CanvasLayer2/Enemy Count"
+@onready var enemy_count: Label = $"CanvasLayer2/TextureRect/Enemy Count"
 
 var check_spawn_enemy: bool = false
 # Called when the node enters the scene tree for the first time.

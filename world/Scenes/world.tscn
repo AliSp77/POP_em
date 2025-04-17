@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://n1oas22mem4g"]
+[gd_scene load_steps=29 format=4 uid="uid://n1oas22mem4g"]
 
 [ext_resource type="Script" uid="uid://de02nmxg27hhp" path="res://world/world.gd" id="1_so8cm"]
 [ext_resource type="Texture2D" uid="uid://driyn5hssrbvt" path="res://assets/cp/cp/CP_V1.0.4.png" id="2_xdskg"]
@@ -6,11 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dtfy7ei8lby1v" path="res://menus/Scenes/paused_menu.tscn" id="4_6fks3"]
 [ext_resource type="Script" uid="uid://1tgx5re3tw2b" path="res://world/canvas_layer.gd" id="5_81xni"]
 [ext_resource type="FontFile" uid="uid://bwow6x8qqq0yl" path="res://menus/Scenes/PressStart2P-Regular.ttf" id="6_au0sj"]
-[ext_resource type="PackedScene" uid="uid://dtbeolgufqkru" path="res://Enemy/Scenes/normal-enemy.tscn" id="7_51f3f"]
 [ext_resource type="PackedScene" uid="uid://byefpnctw8avy" path="res://Enemy/Spawner/Spawner.tscn" id="8_a788n"]
 [ext_resource type="Texture2D" uid="uid://bksl7qjafxseo" path="res://GUI/HUD/Sprite-0001-Recovered.png" id="9_so8cm"]
 [ext_resource type="Script" uid="uid://cyia8lico8mu0" path="res://world/scripts/health_bar.gd" id="10_xdskg"]
 [ext_resource type="Resource" uid="uid://dsrrerxk1buix" path="res://player/Resource/player.tres" id="11_mpotj"]
+[ext_resource type="FontFile" uid="uid://wmsudhoi51hr" path="res://menus/Scenes/Pixolletta8px.ttf" id="12_6fks3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1jqi"]
 texture = ExtResource("2_xdskg")
@@ -1878,6 +1878,17 @@ region = Rect2(20, 200, 160, 48)
 atlas = ExtResource("9_so8cm")
 region = Rect2(225, 208, 96, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fks3"]
+atlas = ExtResource("9_so8cm")
+region = Rect2(231, 120, 48, 48)
+
+[sub_resource type="LabelSettings" id="LabelSettings_81xni"]
+font = ExtResource("12_6fks3")
+font_size = 20
+font_color = Color(0.79, 1, 0.832, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.364706)
+
 [node name="world" type="Node2D"]
 script = ExtResource("1_so8cm")
 
@@ -1971,11 +1982,7 @@ shape = SubResource("WorldBoundaryShape2D_fyhu2")
 [node name="Top Bound" type="CollisionShape2D" parent="WorldBoundry"]
 shape = SubResource("WorldBoundaryShape2D_ov2xu")
 
-[node name="Normal-enemy" parent="." instance=ExtResource("7_51f3f")]
-position = Vector2(149, 101)
-
 [node name="Spawner1" parent="." instance=ExtResource("8_a788n")]
-max_spawn = 0
 
 [node name="Marker2D" type="Marker2D" parent="Spawner1"]
 position = Vector2(341, 48)
@@ -1987,12 +1994,6 @@ position = Vector2(343, 90)
 position = Vector2(343, 137)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="Enemy Count" type="Label" parent="CanvasLayer2"]
-offset_right = 47.0
-offset_bottom = 23.0
-text = "salam"
-metadata/_edit_use_anchors_ = true
 
 [node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer2" node_paths=PackedStringArray("player")]
 anchors_preset = 15
@@ -2009,5 +2010,34 @@ texture_progress_offset = Vector2(51, 16)
 script = ExtResource("10_xdskg")
 player = NodePath("../../player")
 player_resource = ExtResource("11_mpotj")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 56.0
+grow_horizontal = 0
+texture = SubResource("AtlasTexture_6fks3")
+
+[node name="Enemy Count" type="Label" parent="CanvasLayer2/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -11.0
+offset_right = 24.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "123"
+label_settings = SubResource("LabelSettings_81xni")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="Finishline" to="." method="_on_area_2d_body_entered"]

@@ -5,6 +5,7 @@ class_name Player
 @onready var animation: AnimationPlayer = $Animation
 @onready var pistol: Gun = $Pistol
 @onready var hurt_box: HurtBox = $HurtBox
+@export var knockback: int = 16
 
 var direction: int = 1
 var weapon_direction: int = 1
@@ -22,6 +23,7 @@ func _ready():
 func _on_hurt_box_damage_taken(damage: int) -> void:
 	DamageTaken.emit(damage)
 	animation.play("ouch")
+	position.x -= knockback
 
 func _on_hurt_box_health_depleted() -> void:
 	get_tree().change_scene_to_file("res://game_over.tscn")
