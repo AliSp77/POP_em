@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t33gsl8lnce1"
-path="res://.godot/imported/pixil-frame-0 (2).png-b21c339d1ba8eae01099e246d704b828.ctex"
+uid="uid://bksl7qjafxseo"
+path="res://.godot/imported/Sprite-0001-Recovered.png-4a7b7bf274bd1d3a54f473589a17f5c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gun/gun/pixil-frame-0 (2).png"
-dest_files=["res://.godot/imported/pixil-frame-0 (2).png-b21c339d1ba8eae01099e246d704b828.ctex"]
+source_file="res://GUI/HUD/Sprite-0001-Recovered.png"
+dest_files=["res://.godot/imported/Sprite-0001-Recovered.png-4a7b7bf274bd1d3a54f473589a17f5c5.ctex"]
 
 [params]
 

@@ -1,6 +1,7 @@
 extends Marker2D
 
-const	popup_display = preload("res://GUI/popup_display.tscn")
+#const	popup_display = preload("res://GUI/popup_display.tscn")
+@export var popup_display: PackedScene = preload("res://GUI/popup_display/popup_display.tscn")
 @onready var hurt_box: HurtBox = $"../HurtBox"
 
 func _ready() -> void:

@@ -11,6 +11,7 @@ class_name	BaseProjectile
 @export var speed: int
 @export var pop_range: int
 @export var viggle_power: int
+@export var penetration_limit: int
 
 func apply_upgrade():
 	# upgrade logic

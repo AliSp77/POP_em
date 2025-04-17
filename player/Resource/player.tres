@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://dsrrerxk1buix"]
+
+[ext_resource type="Script" uid="uid://kbl7fjf1o31k" path="res://player/Resource/player_stats.gd" id="1_bsev1"]
+
+[resource]
+script = ExtResource("1_bsev1")
+health = 6
+invulnerable_time = 1.0
+speed = 200
+jump_speed = -500
+metadata/_custom_type_script = "uid://kbl7fjf1o31k"

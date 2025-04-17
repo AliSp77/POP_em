@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://n1oas22mem4g"]
+[gd_scene load_steps=27 format=4 uid="uid://n1oas22mem4g"]
 
 [ext_resource type="Script" uid="uid://de02nmxg27hhp" path="res://world/world.gd" id="1_so8cm"]
 [ext_resource type="Texture2D" uid="uid://driyn5hssrbvt" path="res://assets/cp/cp/CP_V1.0.4.png" id="2_xdskg"]
@@ -8,6 +8,9 @@
 [ext_resource type="FontFile" uid="uid://bwow6x8qqq0yl" path="res://menus/Scenes/PressStart2P-Regular.ttf" id="6_au0sj"]
 [ext_resource type="PackedScene" uid="uid://dtbeolgufqkru" path="res://Enemy/Scenes/normal-enemy.tscn" id="7_51f3f"]
 [ext_resource type="PackedScene" uid="uid://byefpnctw8avy" path="res://Enemy/Spawner/Spawner.tscn" id="8_a788n"]
+[ext_resource type="Texture2D" uid="uid://bksl7qjafxseo" path="res://GUI/HUD/Sprite-0001-Recovered.png" id="9_so8cm"]
+[ext_resource type="Script" uid="uid://cyia8lico8mu0" path="res://world/scripts/health_bar.gd" id="10_xdskg"]
+[ext_resource type="Resource" uid="uid://dsrrerxk1buix" path="res://player/Resource/player.tres" id="11_mpotj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1jqi"]
 texture = ExtResource("2_xdskg")
@@ -1867,8 +1870,13 @@ distance = -162.0
 normal = Vector2(0, 1)
 distance = 32.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_a788n"]
-font_size = 150
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdskg"]
+atlas = ExtResource("9_so8cm")
+region = Rect2(20, 200, 160, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpotj"]
+atlas = ExtResource("9_so8cm")
+region = Rect2(225, 208, 96, 16)
 
 [node name="world" type="Node2D"]
 script = ExtResource("1_so8cm")
@@ -1967,6 +1975,7 @@ shape = SubResource("WorldBoundaryShape2D_ov2xu")
 position = Vector2(149, 101)
 
 [node name="Spawner1" parent="." instance=ExtResource("8_a788n")]
+max_spawn = 0
 
 [node name="Marker2D" type="Marker2D" parent="Spawner1"]
 position = Vector2(341, 48)
@@ -1983,6 +1992,22 @@ position = Vector2(343, 137)
 offset_right = 47.0
 offset_bottom = 23.0
 text = "salam"
-label_settings = SubResource("LabelSettings_a788n")
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer2" node_paths=PackedStringArray("player")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 6.0
+value = 6.0
+rounded = true
+texture_under = SubResource("AtlasTexture_xdskg")
+texture_progress = SubResource("AtlasTexture_mpotj")
+texture_progress_offset = Vector2(51, 16)
+script = ExtResource("10_xdskg")
+player = NodePath("../../player")
+player_resource = ExtResource("11_mpotj")
 
 [connection signal="body_entered" from="Finishline" to="." method="_on_area_2d_body_entered"]

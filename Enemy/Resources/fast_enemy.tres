@@ -7,4 +7,5 @@ script = ExtResource("1_ja0kd")
 health = 5
 damage = 1
 speed = 160
+invulnerable_time = 1.0
 metadata/_custom_type_script = "uid://dtveu04i4k8q7"

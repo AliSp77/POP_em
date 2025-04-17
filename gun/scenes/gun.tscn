@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cq7cgixja67yd"]
 
 [ext_resource type="Script" uid="uid://cjdput3p34y26" path="res://gun/scripts/gun.gd" id="1_plyko"]
-[ext_resource type="Resource" uid="uid://comwacm33520d" path="res://gun/scripts/normal_projectile.tres" id="2_1uvr7"]
+[ext_resource type="Resource" uid="uid://comwacm33520d" path="res://gun/resources/normal_projectile.tres" id="2_1uvr7"]
 
 [node name="Pistol" type="Node2D"]
 modulate = Color(1, 1, 0, 1)

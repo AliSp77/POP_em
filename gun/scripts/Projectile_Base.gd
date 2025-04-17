@@ -1,4 +1,6 @@
 extends CharacterBody2D
+class_name Projectile
+
 @onready var visible_on_screen_notifier_2d: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collision: Area2D = $collision

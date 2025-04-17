@@ -10,3 +10,4 @@ damage = 1
 speed = 400
 pop_range = 400
 viggle_power = 1
+penetration_limit = 1

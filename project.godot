@@ -23,10 +23,10 @@ AudioPlayer="*res://Globals/audio_player.tscn"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/window_width_override=1080
-window/size/window_height_override=720
+window/size/viewport_width=480
+window/size/viewport_height=270
+window/size/window_width_override=1920
+window/size/window_height_override=1080
 window/stretch/mode="viewport"
 
 [dotnet]
@@ -114,8 +114,8 @@ mouse_left={
 2d_physics/layer_3="world"
 2d_physics/layer_4="enemy"
 2d_physics/layer_5="finish_line"
-2d_physics/layer_6="player_hit"
-2d_physics/layer_7="player_hurt"
+2d_physics/layer_6="player_projectile"
+2d_physics/layer_7="player_hurtbox"
 2d_physics/layer_8="enemy_hit"
 2d_physics/layer_9="enemy_hurt"
 2d_physics/layer_10="Bounds"

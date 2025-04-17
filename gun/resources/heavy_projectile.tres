@@ -10,4 +10,5 @@ damage = 5
 speed = 150
 pop_range = 100
 viggle_power = 2
+penetration_limit = 1
 metadata/_custom_type_script = "uid://bbh4tbku7tekc"

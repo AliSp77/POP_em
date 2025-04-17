@@ -10,19 +10,20 @@ func _ready() -> void:
 	pass 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if get_tree().get_nodes_in_group("enemies").size() > 0:
-		check_spawn_enemy = true
-	if get_tree().get_nodes_in_group("enemies").size() == 0 and check_spawn_enemy:
-		get_node("player").animation.play("jump")
-		await get_tree().create_timer(2).timeout
-		get_tree().change_scene_to_file("res://win.tscn")
+func _process(_delta: float) -> void:
+	if get_tree():
+		if get_tree().get_nodes_in_group("enemies").size() > 0:
+			check_spawn_enemy = true
+		if get_tree().get_nodes_in_group("enemies").size() == 0 and check_spawn_enemy:
+			get_node("player").animation.play("jump")
+			await get_tree().create_timer(2).timeout
+			get_tree().change_scene_to_file("res://win.tscn")
 	
 	if get_tree():
 		enemy_count.text = str(get_tree().get_node_count_in_group("enemies"))
 	else:
 		enemy_count.text = str(0)
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	get_tree().paused = true
 	get_tree().change_scene_to_file("res://game_over.tscn")

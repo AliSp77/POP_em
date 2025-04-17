@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://v1558ssfoiux"]
 
-[ext_resource type="Script" uid="uid://dmd35c3so88uy" path="res://GUI/popup_display.gd" id="1_m7b0e"]
+[ext_resource type="Script" uid="uid://dmd35c3so88uy" path="res://GUI/popup_display/popup_display.gd" id="1_m7b0e"]
 [ext_resource type="Theme" uid="uid://d2w0dv6jaikcv" path="res://start_menu.tres" id="2_uibdq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m7b0e"]

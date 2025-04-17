@@ -3,7 +3,7 @@
 class_name State extends Node
 
 ## Emitted when the state finishes and wants to transition to another state.
-signal ChangeState(State)
+signal _ChangeState(State)
 
 var parent: CharacterBody2D
 

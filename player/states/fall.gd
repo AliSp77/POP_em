@@ -13,4 +13,4 @@ func process_physics(_delta: float) -> void:
 	if not parent.is_on_floor():
 		parent.velocity += parent.get_gravity() * _delta
 	else:
-		ChangeState.emit(States["Idle"])
+		_ChangeState.emit(States["Idle"])

@@ -20,5 +20,6 @@ func fire_projectile():
 	new_projectile.projectile_color = Type.color
 	new_projectile.pop_range = Type.pop_range
 	new_projectile.viggle_power = Type.viggle_power
+	new_projectile.penetration_limit = Type.penetration_limit
 	add_child(new_projectile)
 	

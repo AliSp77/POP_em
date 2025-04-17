@@ -15,11 +15,11 @@ func enter():
 func process_physics(_delta: float) -> void:
 	if parent.position.y >= (last_y + 32.0):
 		parent.set_collision_mask_value(3, true)
-		ChangeState.emit(States["Fall"])
+		_ChangeState.emit(States["Fall"])
 		
 	if not parent.is_on_floor():
 		parent.velocity += parent.get_gravity() * _delta
 
 func change():
 	parent.set_collision_mask_value(3, true)
-	ChangeState.emit(States["Fall"])
+	_ChangeState.emit(States["Fall"])

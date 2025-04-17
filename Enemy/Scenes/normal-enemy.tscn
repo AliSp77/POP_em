@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://dtbeolgufqkru"]
 
-[ext_resource type="Script" uid="uid://cwkbkukicgu4i" path="res://Enemy/Scripts/normal_enemy.gd" id="1_gfm5t"]
-[ext_resource type="Script" uid="uid://dckpntwcw0q4p" path="res://hurt_box.gd" id="2_a4yds"]
+[ext_resource type="Script" uid="uid://tyihd8uuw6p6" path="res://Enemy/Scripts/enemy.gd" id="1_vym13"]
+[ext_resource type="Script" uid="uid://dckpntwcw0q4p" path="res://utility/scripts/hurt_box.gd" id="2_a4yds"]
 [ext_resource type="Texture2D" uid="uid://duvtc0cerfhi0" path="res://Enemy/Sprites/Norm.png" id="2_cx3wg"]
 [ext_resource type="Resource" uid="uid://dbx20qqf3u1cy" path="res://Enemy/Resources/normal_enemy.tres" id="2_e610q"]
-[ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/scenes/hit_box.tscn" id="4_e610q"]
-[ext_resource type="Script" uid="uid://dhpdyhv5m2fvd" path="res://GUI/popup_location.gd" id="5_u017r"]
+[ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://utility/scenes/hit_box.tscn" id="4_e610q"]
+[ext_resource type="Script" uid="uid://dhpdyhv5m2fvd" path="res://GUI/popup_display/popup_location.gd" id="5_u017r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14vw6"]
 radius = 8.0
@@ -57,7 +57,7 @@ _data = {
 [node name="Normal-enemy" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 8
 collision_mask = 5
-script = ExtResource("1_gfm5t")
+script = ExtResource("1_vym13")
 type = ExtResource("2_e610q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

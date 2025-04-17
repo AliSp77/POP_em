@@ -6,15 +6,15 @@ class_name Enemy
 @onready var hit_box: HitBox = $Hitbox
 @onready var hurt_box: HurtBox = $HurtBox
 @onready var vfx: AnimationPlayer = $VFX
+signal died()
 
 func _ready() -> void:
 	hurt_box.HealthDepleted.connect(die)
 	hurt_box.DamageTaken.connect(hurt_visual)
 	hurt_box.health = type.health
+	hurt_box.invulnerable_time = type.invulnerable_time
 	hit_box.damage = type.damage
 	
-signal died()
-
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():

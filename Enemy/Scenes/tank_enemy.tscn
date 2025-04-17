@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://tyihd8uuw6p6" path="res://Enemy/Scripts/enemy.gd" id="1_52pel"]
 [ext_resource type="Resource" uid="uid://dticwsxchvxev" path="res://Enemy/Resources/tank_enemy.tres" id="2_4kvdq"]
 [ext_resource type="Texture2D" uid="uid://dgbka1k1gsx2i" path="res://Enemy/Sprites/Tank 2.png" id="3_4kvdq"]
-[ext_resource type="Script" uid="uid://dckpntwcw0q4p" path="res://hurt_box.gd" id="4_4wxwv"]
-[ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/scenes/hit_box.tscn" id="5_q1jgg"]
-[ext_resource type="Script" uid="uid://dhpdyhv5m2fvd" path="res://GUI/popup_location.gd" id="6_0qc5n"]
+[ext_resource type="Script" uid="uid://dckpntwcw0q4p" path="res://utility/scripts/hurt_box.gd" id="4_4wxwv"]
+[ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://utility/scenes/hit_box.tscn" id="5_q1jgg"]
+[ext_resource type="Script" uid="uid://dhpdyhv5m2fvd" path="res://GUI/popup_display/popup_location.gd" id="6_0qc5n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14vw6"]
 radius = 11.0

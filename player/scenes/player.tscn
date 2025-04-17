@@ -1,16 +1,18 @@
-[gd_scene load_steps=19 format=3 uid="uid://dc7a5wixcvv4x"]
+[gd_scene load_steps=21 format=3 uid="uid://dc7a5wixcvv4x"]
 
 [ext_resource type="Script" uid="uid://baaa75gtxy0pk" path="res://player/states/player.gd" id="1_b555d"]
 [ext_resource type="Texture2D" uid="uid://wsal0kll321t" path="res://player/Sprite/asl-sheet-col.png" id="2_7yoxw"]
+[ext_resource type="Resource" uid="uid://comwacm33520d" path="res://gun/resources/normal_projectile.tres" id="2_d4apd"]
 [ext_resource type="Script" uid="uid://cgfs402qhwegj" path="res://player/states/state_machine.gd" id="3_geupc"]
+[ext_resource type="Resource" uid="uid://c0sdsbluyg0pa" path="res://gun/resources/heavy_projectile.tres" id="3_mfato"]
 [ext_resource type="Script" uid="uid://0f30wp7sw761" path="res://player/states/idle.gd" id="4_hjf3x"]
+[ext_resource type="Resource" uid="uid://dsrrerxk1buix" path="res://player/Resource/player.tres" id="4_mfato"]
 [ext_resource type="Script" uid="uid://ds7cc3g3758t7" path="res://player/states/walk.gd" id="5_s6wi1"]
 [ext_resource type="Script" uid="uid://blxojp14rst46" path="res://player/states/jump.gd" id="6_dg0n0"]
 [ext_resource type="Script" uid="uid://m6g152pv2oja" path="res://player/states/fall.gd" id="7_vmbab"]
 [ext_resource type="PackedScene" uid="uid://cq7cgixja67yd" path="res://gun/scenes/gun.tscn" id="8_i3uoo"]
 [ext_resource type="Script" uid="uid://bkgawro508w7b" path="res://player/states/transition.gd" id="8_mgvvd"]
-[ext_resource type="PackedScene" uid="uid://bp6hp8jyxrs8m" path="res://gun/scenes/hurt_box.tscn" id="9_l5yb3"]
-[ext_resource type="PackedScene" uid="uid://c8iy16j2row0j" path="res://gun/scenes/health.tscn" id="10_nf2vp"]
+[ext_resource type="PackedScene" uid="uid://bp6hp8jyxrs8m" path="res://utility/scenes/hurt_box.tscn" id="9_l5yb3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_omm3f"]
 radius = 6.99944
@@ -108,6 +110,9 @@ _data = {
 collision_mask = 540
 platform_floor_layers = 4294967041
 script = ExtResource("1_b555d")
+weapon_type1 = ExtResource("2_d4apd")
+weapon_type2 = ExtResource("3_mfato")
+player_resource = ExtResource("4_mfato")
 
 [node name="character" type="Sprite2D" parent="."]
 position = Vector2(-1, 19)
@@ -133,6 +138,7 @@ script = ExtResource("4_hjf3x")
 
 [node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource("5_s6wi1")
+move_speed = 200
 
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource("6_dg0n0")
@@ -150,7 +156,6 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 texture_filter = 1
-zoom = Vector2(6, 6)
 position_smoothing_enabled = true
 
 [node name="Pistol" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("8_i3uoo")]
@@ -166,16 +171,6 @@ position = Vector2(2, 1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_omm3f")
 
-[node name="Health" parent="." instance=ExtResource("10_nf2vp")]
-health = 10.0
-
-[node name="invulner" type="Timer" parent="."]
-wait_time = 1.5
-one_shot = true
-
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="DamageTaken" from="HurtBox" to="." method="_on_hurt_box_damage_taken"]
 [connection signal="HealthDepleted" from="HurtBox" to="." method="_on_hurt_box_health_depleted"]
-[connection signal="timeout" from="invulner" to="." method="_on_invulner_timeout"]
-
-[editable path="Pistol"]

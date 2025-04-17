@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://br1cpaamx1r72"]
 
 [ext_resource type="Script" uid="uid://46adq3jfx0td" path="res://gun/scripts/Projectile_Base.gd" id="1_o4grj"]
-[ext_resource type="Texture2D" uid="uid://d3j8nc7txvbyt" path="res://gun/gun/Sprite-0001.png" id="2_84h4k"]
-[ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/scenes/hit_box.tscn" id="3_84h4k"]
+[ext_resource type="Texture2D" uid="uid://d3j8nc7txvbyt" path="res://gun/sprites/Sprite-0001.png" id="2_84h4k"]
+[ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://utility/scenes/hit_box.tscn" id="3_84h4k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pmjbw"]
 radius = 6.0

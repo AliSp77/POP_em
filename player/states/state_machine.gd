@@ -11,7 +11,7 @@ var current_state: State
 func init(parent: CharacterBody2D) -> void:
 	for child in get_children():
 		child.parent = parent
-		child.ChangeState.connect(change_state)
+		child._ChangeState.connect(change_state)
 		child.States[child.name] = child
 		
 	# Initialize to the default state
