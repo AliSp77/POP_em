@@ -1,18 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtbeolgufqkru"]
+[gd_scene load_steps=13 format=3 uid="uid://dtbeolgufqkru"]
 
-[ext_resource type="Script" uid="uid://cwkbkukicgu4i" path="res://Enemy/normal_enemy.gd" id="1_gfm5t"]
+[ext_resource type="Script" uid="uid://cwkbkukicgu4i" path="res://Enemy/Scripts/normal_enemy.gd" id="1_gfm5t"]
 [ext_resource type="Script" uid="uid://dckpntwcw0q4p" path="res://hurt_box.gd" id="2_a4yds"]
-[ext_resource type="Texture2D" uid="uid://duvtc0cerfhi0" path="res://Enemy/new_sprite/Norm.png" id="2_cx3wg"]
-[ext_resource type="Resource" uid="uid://dbx20qqf3u1cy" path="res://Enemy/normal_enemy.tres" id="2_e610q"]
+[ext_resource type="Texture2D" uid="uid://duvtc0cerfhi0" path="res://Enemy/Sprites/Norm.png" id="2_cx3wg"]
+[ext_resource type="Resource" uid="uid://dbx20qqf3u1cy" path="res://Enemy/Resources/normal_enemy.tres" id="2_e610q"]
 [ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/scenes/hit_box.tscn" id="4_e610q"]
 [ext_resource type="Script" uid="uid://dhpdyhv5m2fvd" path="res://GUI/popup_location.gd" id="5_u017r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14vw6"]
-radius = 7.0
-height = 28.0
+radius = 8.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rlr3f"]
-radius = 9.0
+radius = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_83os5"]
+radius = 8.0
 
 [sub_resource type="Animation" id="Animation_vrhxn"]
 resource_name = "Ouch"
@@ -62,6 +64,7 @@ type = ExtResource("2_e610q")
 texture = ExtResource("2_cx3wg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_14vw6")
 debug_color = Color(1.05888e-06, 0.650034, 0.115851, 0.42)
 
@@ -71,7 +74,6 @@ collision_mask = 2
 script = ExtResource("2_a4yds")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-visible = false
 position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_rlr3f")
 debug_color = Color(0.977512, 0, 0.403538, 0.42)
@@ -80,9 +82,9 @@ debug_color = Color(0.977512, 0, 0.403538, 0.42)
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-visible = false
+position = Vector2(1, 1)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_14vw6")
+shape = SubResource("CapsuleShape2D_83os5")
 
 [node name="PopupLocation" type="Marker2D" parent="."]
 position = Vector2(0, -18)

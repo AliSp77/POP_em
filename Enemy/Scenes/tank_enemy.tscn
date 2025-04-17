@@ -1,18 +1,23 @@
-[gd_scene load_steps=12 format=3 uid="uid://duntynknfrmt7"]
+[gd_scene load_steps=13 format=3 uid="uid://dxlf8yi1wgjjq"]
 
-[ext_resource type="Script" uid="uid://ls0iihvm5ex6" path="res://Enemy/Dandon1/dandon_1.gd" id="1_tfuj5"]
-[ext_resource type="Texture2D" uid="uid://duvtc0cerfhi0" path="res://Enemy/new_sprite/Norm.png" id="2_3wb7f"]
-[ext_resource type="Script" uid="uid://dckpntwcw0q4p" path="res://hurt_box.gd" id="3_ecdui"]
-[ext_resource type="Script" uid="uid://d0xyb7vt5tqhu" path="res://health.gd" id="4_jifag"]
-[ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/scenes/hit_box.tscn" id="5_4bdkd"]
-[ext_resource type="Script" uid="uid://dhpdyhv5m2fvd" path="res://GUI/popup_location.gd" id="6_vrhxn"]
+[ext_resource type="Script" uid="uid://tyihd8uuw6p6" path="res://Enemy/Scripts/enemy.gd" id="1_52pel"]
+[ext_resource type="Resource" uid="uid://dticwsxchvxev" path="res://Enemy/Resources/tank_enemy.tres" id="2_4kvdq"]
+[ext_resource type="Texture2D" uid="uid://dgbka1k1gsx2i" path="res://Enemy/Sprites/Tank 2.png" id="3_4kvdq"]
+[ext_resource type="Script" uid="uid://dckpntwcw0q4p" path="res://hurt_box.gd" id="4_4wxwv"]
+[ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/scenes/hit_box.tscn" id="5_q1jgg"]
+[ext_resource type="Script" uid="uid://dhpdyhv5m2fvd" path="res://GUI/popup_location.gd" id="6_0qc5n"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hamc"]
-radius = 7.0
-height = 28.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14vw6"]
+radius = 11.0
+height = 38.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hc7eh"]
-radius = 9.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rlr3f"]
+radius = 11.0
+height = 38.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4mt1"]
+radius = 11.0
+height = 40.0
 
 [sub_resource type="Animation" id="Animation_vrhxn"]
 resource_name = "Ouch"
@@ -52,44 +57,40 @@ _data = {
 &"RESET": SubResource("Animation_lgnly")
 }
 
-[node name="dandon1" type="CharacterBody2D" groups=["enemies"]]
+[node name="TankEnemy" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 8
 collision_mask = 5
-script = ExtResource("1_tfuj5")
+script = ExtResource("1_52pel")
+type = ExtResource("2_4kvdq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_3wb7f")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_4kvdq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_0hamc")
+shape = SubResource("CapsuleShape2D_14vw6")
 debug_color = Color(1.05888e-06, 0.650034, 0.115851, 0.42)
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("3_ecdui")
+script = ExtResource("4_4wxwv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-visible = false
-position = Vector2(1, 0)
-shape = SubResource("CapsuleShape2D_hc7eh")
+shape = SubResource("CapsuleShape2D_rlr3f")
 debug_color = Color(0.977512, 0, 0.403538, 0.42)
 
-[node name="Health" type="Node" parent="."]
-script = ExtResource("4_jifag")
-health = 10.0
-
-[node name="Hitbox" parent="." instance=ExtResource("5_4bdkd")]
+[node name="Hitbox" parent="." instance=ExtResource("5_q1jgg")]
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-visible = false
+position = Vector2(-1, 6)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_0hamc")
+shape = SubResource("CapsuleShape2D_r4mt1")
 
 [node name="PopupLocation" type="Marker2D" parent="."]
 position = Vector2(0, -18)
-script = ExtResource("6_vrhxn")
+script = ExtResource("6_0qc5n")
 
 [node name="VFX" type="AnimationPlayer" parent="."]
 libraries = {

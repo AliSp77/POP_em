@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1y38t7vwtpks"
-path="res://.godot/imported/fast.png-0bc63196df0750f4cf8ce234173889f8.ctex"
+uid="uid://dgbka1k1gsx2i"
+path="res://.godot/imported/Tank 2.png-75c854cfea407842929270c1c67c4edb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemy/new_sprite/fast.png"
-dest_files=["res://.godot/imported/fast.png-0bc63196df0750f4cf8ce234173889f8.ctex"]
+source_file="res://Enemy/Sprites/Tank 2.png"
+dest_files=["res://.godot/imported/Tank 2.png-75c854cfea407842929270c1c67c4edb.ctex"]
 
 [params]
 

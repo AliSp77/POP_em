@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3 uid="uid://cib81ry4ja6ep"]
+
+[ext_resource type="Script" uid="uid://tyihd8uuw6p6" path="res://Enemy/Scripts/enemy.gd" id="1_nrnco"]
+[ext_resource type="Resource" uid="uid://cjtfln03a2en5" path="res://Enemy/Resources/fast_enemy.tres" id="2_f3eeo"]
+[ext_resource type="Texture2D" uid="uid://b1y38t7vwtpks" path="res://Enemy/Sprites/fast.png" id="3_nrnco"]
+[ext_resource type="Script" uid="uid://dckpntwcw0q4p" path="res://hurt_box.gd" id="4_003xr"]
+[ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://gun/scenes/hit_box.tscn" id="5_nmtwl"]
+[ext_resource type="Script" uid="uid://dhpdyhv5m2fvd" path="res://GUI/popup_location.gd" id="6_q3r0q"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14vw6"]
+radius = 7.0
+height = 22.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rlr3f"]
+radius = 7.0
+height = 22.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nrnco"]
+radius = 6.0
+height = 32.0
+
+[sub_resource type="Animation" id="Animation_vrhxn"]
+resource_name = "Ouch"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(0.902064, 0, 0.137766, 1), Color(1, 1, 1, 1), Color(0.902064, 0, 0.137766, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lgnly"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rse7d"]
+_data = {
+&"Ouch": SubResource("Animation_vrhxn"),
+&"RESET": SubResource("Animation_lgnly")
+}
+
+[node name="FastEnemy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_nrnco")
+type = ExtResource("2_f3eeo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_nrnco")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_14vw6")
+debug_color = Color(1.05888e-06, 0.650034, 0.115851, 0.42)
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_003xr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CapsuleShape2D_rlr3f")
+debug_color = Color(0.977512, 0, 0.403538, 0.42)
+
+[node name="Hitbox" parent="." instance=ExtResource("5_nmtwl")]
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_nrnco")
+
+[node name="PopupLocation" type="Marker2D" parent="."]
+position = Vector2(0, -18)
+script = ExtResource("6_q3r0q")
+
+[node name="VFX" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rse7d")
+}

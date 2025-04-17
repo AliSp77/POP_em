@@ -1,14 +1,17 @@
 extends CharacterBody2D
-class_name dandon1
+class_name NormalEnemy
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-@onready var health: Health = $Health
+@export var type: EnemyType
+
+@onready var hit_box: HitBox = $Hitbox
 @onready var hurt_box: HurtBox = $HurtBox
 @onready var vfx: AnimationPlayer = $VFX
 
 func _ready() -> void:
+	hurt_box.HealthDepleted.connect(die)
 	hurt_box.DamageTaken.connect(hurt_visual)
+	hurt_box.health = type.health
+	hit_box.damage = type.damage
 	
 signal died()
 
@@ -17,13 +20,15 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	velocity.x = -40
+	velocity.x = -type.speed
 
 	move_and_slide()
-	
-	if health.health <= 0:
-		died.emit()
-		queue_free()
+
+func die():
+	died.emit()
+	queue_free()
 
 func hurt_visual(value):
 	vfx.play("Ouch")
+	modulate.g = float(hurt_box.health)/float(type.health)
+	modulate.b = float(hurt_box.health)/float(type.health)

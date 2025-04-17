@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dtfy7ei8lby1v" path="res://menus/Scenes/paused_menu.tscn" id="4_6fks3"]
 [ext_resource type="Script" uid="uid://1tgx5re3tw2b" path="res://world/canvas_layer.gd" id="5_81xni"]
 [ext_resource type="FontFile" uid="uid://bwow6x8qqq0yl" path="res://menus/Scenes/PressStart2P-Regular.ttf" id="6_au0sj"]
-[ext_resource type="PackedScene" uid="uid://dtbeolgufqkru" path="res://Enemy/normal-enemy.tscn" id="7_51f3f"]
+[ext_resource type="PackedScene" uid="uid://dtbeolgufqkru" path="res://Enemy/Scenes/normal-enemy.tscn" id="7_51f3f"]
 [ext_resource type="PackedScene" uid="uid://byefpnctw8avy" path="res://Enemy/Spawner/Spawner.tscn" id="8_a788n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1jqi"]

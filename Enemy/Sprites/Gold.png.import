@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dguovh5sjgd3r"
-path="res://.godot/imported/Tank 1.png-ccfe51aac24c364f819609cbde1b9de2.ctex"
+uid="uid://bvpnsg5ott0bt"
+path="res://.godot/imported/Gold.png-e0401b8ad897411550b5dc2b4514992f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemy/new_sprite/Tank 1.png"
-dest_files=["res://.godot/imported/Tank 1.png-ccfe51aac24c364f819609cbde1b9de2.ctex"]
+source_file="res://Enemy/Sprites/Gold.png"
+dest_files=["res://.godot/imported/Gold.png-e0401b8ad897411550b5dc2b4514992f.ctex"]
 
 [params]
 

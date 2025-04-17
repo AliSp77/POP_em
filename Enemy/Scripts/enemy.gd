@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name NormalEnemy
+class_name Enemy
 
 @export var type: EnemyType
 
@@ -12,7 +12,6 @@ func _ready() -> void:
 	hurt_box.DamageTaken.connect(hurt_visual)
 	hurt_box.health = type.health
 	hit_box.damage = type.damage
-	
 	
 signal died()
 

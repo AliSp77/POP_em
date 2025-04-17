@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duvtc0cerfhi0"
-path="res://.godot/imported/Norm.png-7519bc19e065377832f05634e4565bd2.ctex"
+uid="uid://gsyhbycrbgr1"
+path="res://.godot/imported/Boss.png-facd052f8c32cee1b803156d328d8e64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemy/new_sprite/Norm.png"
-dest_files=["res://.godot/imported/Norm.png-7519bc19e065377832f05634e4565bd2.ctex"]
+source_file="res://Enemy/Sprites/Boss.png"
+dest_files=["res://.godot/imported/Boss.png-facd052f8c32cee1b803156d328d8e64.ctex"]
 
 [params]
 
