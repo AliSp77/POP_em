@@ -23,7 +23,7 @@ func _ready() -> void:
 	sprite_2d.modulate = projectile_color
 	start_pos = position
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	velocity.x = direction*speed
 	velocity.y = randf_range(-1,1)*(position.x-start_pos.x)*viggle_power
 	var random_scale = clampf((abs(position.x-start_pos.x)/75),0,1.5)

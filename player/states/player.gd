@@ -6,23 +6,25 @@ class_name Player
 @onready var pistol: Gun = $Pistol
 @onready var hurt_box: HurtBox = $HurtBox
 @export var knockback: int = 16
+@onready var vfx: AnimationPlayer = $VFX
 
 var direction: int = 1
 var weapon_direction: int = 1
 @export var weapon_type1: Resource
 @export var weapon_type2: Resource
-@export var player_resource : PlayerStats
+@export var player_resource : PlayerResource
 
 signal DamageTaken(damage)
 
 func _ready():
 	state_machine.init(self)
 	hurt_box.health = player_resource.health
-	
+	hurt_box.Resting.connect(rest_animation)
 	
 func _on_hurt_box_damage_taken(damage: int) -> void:
 	DamageTaken.emit(damage)
-	animation.play("ouch")
+	#animation.play("ouch")
+	vfx.play("resting")
 	position.x -= knockback
 
 func _on_hurt_box_health_depleted() -> void:
@@ -52,3 +54,8 @@ func _process(delta: float) -> void:
 func change_direction(new_direction):
 	scale.x = -1
 	direction = new_direction
+
+func rest_animation(value):
+	if not value:
+		vfx.stop()
+	

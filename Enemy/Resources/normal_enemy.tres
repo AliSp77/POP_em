@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_djsce")
-health = 20
-damage = 2
-speed = 20
-invulnerable_time = 0.5
+health = 10
+damage = 1
+speed = 80
+invulnerable_time = 0.2
 metadata/_custom_type_script = "uid://dtveu04i4k8q7"

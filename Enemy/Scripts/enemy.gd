@@ -6,9 +6,11 @@ class_name Enemy
 @onready var hit_box: HitBox = $Hitbox
 @onready var hurt_box: HurtBox = $HurtBox
 @onready var vfx: AnimationPlayer = $VFX
-signal died()
+signal EnemyDied()
+signal EnemySpawned()
 
 func _ready() -> void:
+	EnemySpawned.emit()
 	hurt_box.HealthDepleted.connect(die)
 	hurt_box.DamageTaken.connect(hurt_visual)
 	hurt_box.health = type.health
@@ -25,10 +27,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func die():
-	died.emit()
+	EnemyDied.emit()
 	queue_free()
 
-func hurt_visual(value):
+func hurt_visual(_value):
 	vfx.play("Ouch")
 	modulate.g = float(hurt_box.health)/float(type.health)
 	modulate.b = float(hurt_box.health)/float(type.health)

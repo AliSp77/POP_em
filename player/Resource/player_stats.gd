@@ -1,5 +1,5 @@
 extends Resource
-class_name PlayerStats
+class_name PlayerResource
 
 @export var health: int
 @export var invulnerable_time: float

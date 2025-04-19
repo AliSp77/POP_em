@@ -2,7 +2,7 @@ extends TextureProgressBar
 class_name HealthBar
 
 @export var player: Player
-@export var player_resource: PlayerStats
+@export var player_resource: PlayerResource
 
 func _ready() -> void:
 	#await player.ready

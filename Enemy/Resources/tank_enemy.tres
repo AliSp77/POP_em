@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_ryboq")
-health = 50
+health = 20
 damage = 5
-speed = 10
-invulnerable_time = 2.0
+speed = 40
+invulnerable_time = 0.2
 metadata/_custom_type_script = "uid://dtveu04i4k8q7"

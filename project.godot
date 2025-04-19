@@ -20,6 +20,8 @@ boot_splash/minimum_display_time=100
 [autoload]
 
 AudioPlayer="*res://Globals/audio_player.tscn"
+EnemyManager="*res://Globals/EnemyManager.gd"
+PlayerStats="*res://Globals/PlayerStats.gd"
 
 [display]
 

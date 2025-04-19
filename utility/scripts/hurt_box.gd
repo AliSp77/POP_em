@@ -2,6 +2,8 @@ extends Area2D
 class_name HurtBox
 
 signal DamageTaken(damage: int)
+signal Resting(value: bool)
+signal FinishedResting
 signal HealthDepleted
 	
 @export var health: int
@@ -17,7 +19,8 @@ func on_are_entered(hitbox: HitBox) -> void:
 			health -= hitbox.damage
 			#print(health.health)
 			DamageTaken.emit(hitbox.damage)
-			invulnerable = true	
+			invulnerable = true
+			Resting.emit(true)
 			if health <= 0:
 				HealthDepleted.emit()
 
@@ -28,3 +31,4 @@ func rest_time(value):
 
 func done_resting():
 	invulnerable = false
+	Resting.emit(false)

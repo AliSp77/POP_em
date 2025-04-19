@@ -1983,20 +1983,18 @@ shape = SubResource("WorldBoundaryShape2D_fyhu2")
 [node name="Top Bound" type="CollisionShape2D" parent="WorldBoundry"]
 shape = SubResource("WorldBoundaryShape2D_ov2xu")
 
-[node name="Spawner1" parent="." instance=ExtResource("8_a788n")]
-max_spawn = 0
+[node name="Spawner" parent="." instance=ExtResource("8_a788n")]
 
-[node name="Marker2D" type="Marker2D" parent="Spawner1"]
+[node name="Marker2D" type="Marker2D" parent="Spawner"]
 position = Vector2(632, 80)
 
-[node name="Marker2D2" type="Marker2D" parent="Spawner1"]
+[node name="Marker2D2" type="Marker2D" parent="Spawner"]
 position = Vector2(632, 192)
 
-[node name="Marker2D3" type="Marker2D" parent="Spawner1"]
+[node name="Marker2D3" type="Marker2D" parent="Spawner"]
 position = Vector2(632, 296)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer2" node_paths=PackedStringArray("player")]
 anchors_preset = 15
