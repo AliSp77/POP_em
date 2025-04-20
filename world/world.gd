@@ -3,6 +3,7 @@ extends Node2D
 @onready var area_2d: Area2D = $Finishline
 @onready var enemy_count: Label = $"CanvasLayer2/TextureRect/Enemy Count"
 @onready var spawner: Spawner = $Spawner
+@onready var canvas_layer_2: CanvasLayer = $CanvasLayer2
 
 var max_enemies: int
 var check_spawn_enemy: bool = false
@@ -10,6 +11,7 @@ var check_spawn_enemy: bool = false
 func _ready() -> void:
 	AudioPlayer.normal_theme()
 	spawner.LevelChange.connect(LevelNumber)
+	WaveController.LevelChange.connect(_on_level_change)
 	pass 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,3 +34,9 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 
 func LevelNumber(value):
 	max_enemies = value
+
+func _on_level_change(value):
+	print("go hide bitch")
+	canvas_layer_2.hide()
+	await get_tree().create_timer(5).timeout
+	canvas_layer_2.show()

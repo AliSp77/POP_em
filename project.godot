@@ -22,6 +22,7 @@ boot_splash/minimum_display_time=100
 AudioPlayer="*res://Globals/audio_player.tscn"
 EnemyManager="*res://Globals/EnemyManager.gd"
 PlayerStats="*res://Globals/PlayerStats.gd"
+WaveController="*res://Globals/WaveController.gd"
 
 [display]
 

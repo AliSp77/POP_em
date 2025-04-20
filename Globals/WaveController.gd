@@ -1,17 +1,23 @@
 # WaveController.gd
 extends Node
 
-@export var enemy_spawner: NodePath
-@export var start_wave_button: NodePath
+signal LevelChange(level: int)
 
-func _ready():
-	EnemyManager.connect("wave_cleared", Callable(self, "_on_wave_cleared"))
-	get_node(start_wave_button).connect("pressed", Callable(self, "_on_start_wave_pressed"))
+const start_level: int = 1
+const start_enemy: int = 5
+const start_timer: float = 1.0
 
-func _on_start_wave_pressed():
-	get_node(enemy_spawner).spawn_wave()
-	get_node(start_wave_button).disabled = true
+var current_level: int = start_level: set = _on_level_change
+var current_enemy_count: int: get = _on_count_called
+
+func _on_level_change(value):
+	print(value)
+	current_level = value
+	LevelChange.emit(value)
+	pass
+
+func _on_count_called():
+	return current_level * 5
 
 func _on_wave_cleared():
-	PlayerStats.add_xp(50)  # Bonus XP for clearing wave
-	get_node(start_wave_button).disabled = false
+	pass
