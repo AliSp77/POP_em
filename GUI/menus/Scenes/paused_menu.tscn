@@ -1,0 +1,147 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtfy7ei8lby1v"]
+
+[ext_resource type="Script" uid="uid://2mo00vlolexa" path="res://GUI/menus/Scripts/paused_menu.gd" id="1_nrm8f"]
+[ext_resource type="PackedScene" uid="uid://cuxbfggm0rdt" path="res://GUI/menus/Inventory/inventory_slot.tscn" id="2_1ygwb"]
+
+[sub_resource type="SystemFont" id="SystemFont_5eghd"]
+font_names = PackedStringArray("Upheaval TT (BRK)")
+subpixel_positioning = 0
+
+[sub_resource type="Theme" id="Theme_b343j"]
+default_font = SubResource("SystemFont_5eghd")
+default_font_size = 20
+
+[sub_resource type="Animation" id="Animation_a6fd8"]
+resource_name = "Fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.486311),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5cx64"]
+resource_name = "Fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_76n8v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jhahv"]
+_data = {
+&"Fade_in": SubResource("Animation_a6fd8"),
+&"Fade_out": SubResource("Animation_5cx64"),
+&"RESET": SubResource("Animation_76n8v")
+}
+
+[node name="PausedMenu" type="Control"]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_b343j")
+script = ExtResource("1_nrm8f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27451)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 8
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Paused"
+
+[node name="Resume" type="Button" parent="PanelContainer/GridContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Resume"
+
+[node name="Menu" type="Button" parent="PanelContainer/GridContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Menu
+"
+
+[node name="Quit" type="Button" parent="PanelContainer/GridContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Quit
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_jhahv")
+}
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 96.0
+offset_bottom = 96.0
+text = "1
+"
+
+[node name="InventorySlot" parent="." instance=ExtResource("2_1ygwb")]
+layout_mode = 1
+offset_left = 104.0
+offset_top = 64.0
+offset_right = 125.12
+offset_bottom = 85.2
+
+[connection signal="pressed" from="PanelContainer/GridContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/GridContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="PanelContainer/GridContainer/Quit" to="." method="_on_quit_pressed"]

@@ -10,7 +10,6 @@ var check_spawn_enemy: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AudioPlayer.normal_theme()
-	spawner.LevelChange.connect(LevelNumber)
 	WaveController.LevelChange.connect(_on_level_change)
 	pass 
 

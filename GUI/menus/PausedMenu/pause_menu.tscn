@@ -1,0 +1,116 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2fuesibwywsr"]
+
+[ext_resource type="Script" uid="uid://f606m2tvy58r" path="res://GUI/menus/PausedMenu/pause_menu.gd" id="1_p6aro"]
+[ext_resource type="Texture2D" uid="uid://cmhmo6fyaa6nw" path="res://GUI/menus/PausedMenu/items.png" id="2_ci0qu"]
+[ext_resource type="PackedScene" uid="uid://cuxbfggm0rdt" path="res://GUI/menus/Inventory/inventory_slot.tscn" id="3_i2647"]
+[ext_resource type="Script" uid="uid://d2b0k6e6kcg0q" path="res://GUI/menus/PausedMenu/inventory_UI.gd" id="3_ks2pn"]
+[ext_resource type="Resource" uid="uid://b8ja7lvmf2pe5" path="res://GUI/menus/Inventory/player_inventory.tres" id="4_bb3s2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2647"]
+atlas = ExtResource("2_ci0qu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ks2pn"]
+texture = SubResource("AtlasTexture_i2647")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_p6aro")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.172549, 0.172549, 0.172549, 0.815686)
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.266667
+anchor_right = 0.1
+anchor_bottom = 0.266667
+offset_right = 204.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ks2pn")
+metadata/_edit_use_anchors_ = true
+
+[node name="GridContainer" type="GridContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+columns = 5
+script = ExtResource("3_ks2pn")
+inventory_data = ExtResource("4_bb3s2")
+
+[node name="InventorySlot" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_i2647")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_i2647")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_i2647")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_i2647")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_i2647")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_i2647")]
+layout_mode = 2
+
+[node name="ItemDescriptionLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1198.0
+offset_top = 335.0
+offset_right = 1797.0
+offset_bottom = 434.0
+theme_override_font_sizes/font_size = 72
+text = "Item Description:"
+
+[node name="ItemDescriptionText" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1201.0
+offset_top = 467.0
+offset_right = 1860.0
+offset_bottom = 786.0
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 846.0
+offset_right = 276.0
+offset_bottom = 877.0
+scale = Vector2(5, 5)
+alignment = 1
+
+[node name="save" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "save"
+
+[node name="load" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "load"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

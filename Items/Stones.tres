@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cmcmmafke2q33"]
+
+[ext_resource type="Script" uid="uid://c54dy8wgvftqi" path="res://src/Items/Scripts/item_data.gd" id="1_0y0ll"]
+[ext_resource type="Script" uid="uid://b7s33cw12beql" path="res://src/Items/ItemEffects/ItemEffect.gd" id="1_1l6i8"]
+[ext_resource type="Texture2D" uid="uid://dolsraumas2u4" path="res://src/Items/Sprites/items.png" id="2_1l6i8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53pe5"]
+atlas = ExtResource("2_1l6i8")
+region = Rect2(64, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_0y0ll")
+name = "Stone"
+description = "down with USA"
+texture = SubResource("AtlasTexture_53pe5")
+effects = Array[ExtResource("1_1l6i8")]([])
+metadata/_custom_type_script = "uid://c54dy8wgvftqi"

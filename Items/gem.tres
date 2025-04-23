@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=8 format=3 uid="uid://dtv5bpfq52h4x"]
+
+[ext_resource type="Script" uid="uid://c54dy8wgvftqi" path="res://src/Items/Scripts/item_data.gd" id="1_jjtkj"]
+[ext_resource type="Script" uid="uid://b7s33cw12beql" path="res://src/Items/ItemEffects/ItemEffect.gd" id="1_wdhtb"]
+[ext_resource type="Texture2D" uid="uid://dolsraumas2u4" path="res://src/Items/Sprites/items.png" id="2_wdhtb"]
+[ext_resource type="Script" uid="uid://c3fialofc5vnp" path="res://src/Items/ItemEffects/ItemHealEffect.gd" id="2_wlls8"]
+[ext_resource type="AudioStream" uid="uid://dwfcfha25xoac" path="res://src/Items/ItemEffects/hp-up.wav" id="3_6dywr"]
+
+[sub_resource type="Resource" id="Resource_msnn0"]
+script = ExtResource("2_wlls8")
+heal_amount = 1
+audio = ExtResource("3_6dywr")
+use_description = ""
+metadata/_custom_type_script = "uid://c3fialofc5vnp"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkvu8"]
+atlas = ExtResource("2_wdhtb")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_jjtkj")
+name = "Gem"
+description = "a valueable gem"
+texture = SubResource("AtlasTexture_qkvu8")
+effects = Array[ExtResource("1_wdhtb")]([SubResource("Resource_msnn0")])
+metadata/_custom_type_script = "uid://c54dy8wgvftqi"

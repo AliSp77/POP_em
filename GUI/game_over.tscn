@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://qpxj6rtiepdb"]
+
+[ext_resource type="Texture2D" uid="uid://bsbkxfcq4st7l" path="res://GUI/menus/Art/bg.jpg" id="1_r5nkv"]
+[ext_resource type="Script" uid="uid://d28mt6uyun04r" path="res://GUI/game_over.gd" id="1_xw25k"]
+[ext_resource type="Theme" uid="uid://d2w0dv6jaikcv" path="res://GUI/start_menu.tres" id="3_6nhif"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ccer4"]
+font_size = 180
+font_color = Color(0.733333, 0, 0.407843, 1)
+
+[node name="Control" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xw25k")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_r5nkv")
+expand_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+clip_contents = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_6nhif")
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_ccer4")
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_6nhif")
+text = "Menu"
+icon_alignment = 1
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

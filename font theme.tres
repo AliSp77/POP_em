@@ -1,7 +1,0 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b2l41b3tjy4qw"]
-
-[ext_resource type="FontFile" uid="uid://wmsudhoi51hr" path="res://menus/Scenes/Pixolletta8px.ttf" id="1_v432r"]
-
-[resource]
-default_font = ExtResource("1_v432r")
-default_font_size = 8

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://iqkf4407p7m6"]
+
+[ext_resource type="Script" uid="uid://b7s33cw12beql" path="res://src/Items/ItemEffects/ItemEffect.gd" id="1_10stj"]
+[ext_resource type="Script" uid="uid://c54dy8wgvftqi" path="res://src/Items/Scripts/item_data.gd" id="1_746le"]
+[ext_resource type="Texture2D" uid="uid://dolsraumas2u4" path="res://src/Items/Sprites/items.png" id="2_devb7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10stj"]
+atlas = ExtResource("2_devb7")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_746le")
+name = "potion"
+description = "bokhor jooon begiri"
+texture = SubResource("AtlasTexture_10stj")
+effects = Array[ExtResource("1_10stj")]([])
+metadata/_custom_type_script = "uid://c54dy8wgvftqi"
