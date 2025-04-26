@@ -1,16 +1,18 @@
-[gd_scene load_steps=29 format=4 uid="uid://n1oas22mem4g"]
+[gd_scene load_steps=31 format=4 uid="uid://n1oas22mem4g"]
 
 [ext_resource type="Script" uid="uid://de02nmxg27hhp" path="res://world/world.gd" id="1_so8cm"]
 [ext_resource type="Texture2D" uid="uid://driyn5hssrbvt" path="res://world/CP_V1.0.4.png" id="2_xdskg"]
 [ext_resource type="PackedScene" uid="uid://dc7a5wixcvv4x" path="res://player/scenes/player.tscn" id="3_mpotj"]
-[ext_resource type="PackedScene" uid="uid://dtfy7ei8lby1v" path="res://GUI/menus/Scenes/paused_menu.tscn" id="4_6fks3"]
 [ext_resource type="Script" uid="uid://1tgx5re3tw2b" path="res://world/canvas_layer.gd" id="5_81xni"]
 [ext_resource type="FontFile" uid="uid://bwow6x8qqq0yl" path="res://GUI/menus/Scenes/PressStart2P-Regular.ttf" id="6_au0sj"]
 [ext_resource type="PackedScene" uid="uid://byefpnctw8avy" path="res://Enemy/Spawner/Spawner.tscn" id="8_a788n"]
 [ext_resource type="Texture2D" uid="uid://bksl7qjafxseo" path="res://GUI/HUD/Sprite-0001-Recovered.png" id="9_so8cm"]
 [ext_resource type="Script" uid="uid://cyia8lico8mu0" path="res://world/scripts/health_bar.gd" id="10_xdskg"]
+[ext_resource type="Script" uid="uid://dqjo5cbytqm8u" path="res://world/scripts/fps.gd" id="11_6fks3"]
 [ext_resource type="Resource" uid="uid://dsrrerxk1buix" path="res://player/Resource/player.tres" id="11_mpotj"]
 [ext_resource type="FontFile" uid="uid://wmsudhoi51hr" path="res://GUI/menus/Scenes/Pixolletta8px.ttf" id="12_6fks3"]
+[ext_resource type="PackedScene" uid="uid://cxvnapglc7vqi" path="res://Items/ItemPickup/ItemPickup.tscn" id="12_81xni"]
+[ext_resource type="Resource" uid="uid://cmcmmafke2q33" path="res://Items/Stones.tres" id="13_81xni"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1jqi"]
 texture = ExtResource("2_xdskg")
@@ -1904,18 +1906,12 @@ tile_map_data = PackedByteArray("AAAAABYAAAABACYAAAABABYAAAABACYAAAACABYAAAABACY
 tile_set = SubResource("TileSet_svclo")
 
 [node name="Assets" type="TileMapLayer" parent="TileMap"]
-position = Vector2(163, 28)
-tile_map_data = PackedByteArray("AAASAAkAAAAYACAAAAASAAoAAAAYACEAAAAMAAkAAAAaACAAAAAMAAoAAAAaACEAAAAHAAkAAAAYACAAAAAHAAoAAAAYACEAAAACAAkAAAAaACAAAAACAAoAAAAaACEAAAATAAkAAAAaAB0AAAATAAoAAAAaAB4AAAARAAoAAAAfAAgAAAALAAoAAAAfAAgAAAAGAAoAAAAfAAgAAAABAAoAAAAfAAgAAAD2/woAAAAfAAgAAAD3/wkAAAAaACAAAAD3/woAAAAaACEAAAD8/woAAAAfAAgAAAD9/wkAAAAYACAAAAD9/woAAAAYACEAAAD+/wkAAAAaAB0AAAD+/woAAAAaAB4AAAA=")
+tile_map_data = PackedByteArray("AAALABUAAAAYACAAAAAgABUAAAAYACAAAAAEABYAAAAfAAgAAAAFABUAAAAaACAAAAAFABYAAAAaACEAAAAKABYAAAAfAAgAAAALABYAAAAYACEAAAAMABUAAAAaAB0AAAAMABYAAAAaAB4AAAAPABYAAAAfAAgAAAAQABUAAAAaACAAAAAQABYAAAAaACEAAAAUABYAAAAfAAgAAAAVABUAAAAYACAAAAAVABYAAAAYACEAAAAZABYAAAAfAAgAAAAaABUAAAAaACAAAAAaABYAAAAaACEAAAAfABYAAAAfAAgAAAAgABYAAAAYACEAAAAhABUAAAAaAB0AAAAhABYAAAAaAB4AAAA=")
 tile_set = SubResource("TileSet_3dhv6")
 
 [node name="player" parent="." instance=ExtResource("3_mpotj")]
 z_index = 5
 position = Vector2(232, 216)
-
-[node name="MenuCanvas" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="PausedMenu" parent="MenuCanvas" instance=ExtResource("4_6fks3")]
 
 [node name="Finishline" type="Area2D" parent="."]
 visible = false
@@ -2040,5 +2036,16 @@ text = "123"
 label_settings = SubResource("LabelSettings_81xni")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="FPS" type="Label" parent="."]
+offset_left = 584.0
+offset_top = 64.0
+offset_right = 624.0
+offset_bottom = 87.0
+script = ExtResource("11_6fks3")
+
+[node name="ItemPickup" parent="." instance=ExtResource("12_81xni")]
+position = Vector2(72, 96)
+item_data = ExtResource("13_81xni")
 
 [connection signal="body_entered" from="Finishline" to="." method="_on_area_2d_body_entered"]

@@ -1,8 +1,17 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cmcmmafke2q33"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=8 format=3 uid="uid://cmcmmafke2q33"]
 
-[ext_resource type="Script" uid="uid://c54dy8wgvftqi" path="res://src/Items/Scripts/item_data.gd" id="1_0y0ll"]
-[ext_resource type="Script" uid="uid://b7s33cw12beql" path="res://src/Items/ItemEffects/ItemEffect.gd" id="1_1l6i8"]
-[ext_resource type="Texture2D" uid="uid://dolsraumas2u4" path="res://src/Items/Sprites/items.png" id="2_1l6i8"]
+[ext_resource type="Script" uid="uid://c54dy8wgvftqi" path="res://Items/scripts/item_data.gd" id="1_0y0ll"]
+[ext_resource type="Script" uid="uid://b7s33cw12beql" path="res://Items/ItemEffects/ItemEffect.gd" id="1_1l6i8"]
+[ext_resource type="Texture2D" uid="uid://dolsraumas2u4" path="res://Items/Sprites/items.png" id="2_1l6i8"]
+[ext_resource type="AudioStream" uid="uid://dwfcfha25xoac" path="res://Items/ItemEffects/hp-up.wav" id="2_o3di5"]
+[ext_resource type="Script" uid="uid://c3fialofc5vnp" path="res://Items/ItemEffects/ItemHealEffect.gd" id="3_dultp"]
+
+[sub_resource type="Resource" id="Resource_4x4eh"]
+script = ExtResource("3_dultp")
+heal_amount = 1
+audio = ExtResource("2_o3di5")
+use_description = ""
+metadata/_custom_type_script = "uid://c3fialofc5vnp"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_53pe5"]
 atlas = ExtResource("2_1l6i8")
@@ -13,5 +22,5 @@ script = ExtResource("1_0y0ll")
 name = "Stone"
 description = "down with USA"
 texture = SubResource("AtlasTexture_53pe5")
-effects = Array[ExtResource("1_1l6i8")]([])
+effects = Array[ExtResource("1_1l6i8")]([SubResource("Resource_4x4eh")])
 metadata/_custom_type_script = "uid://c54dy8wgvftqi"

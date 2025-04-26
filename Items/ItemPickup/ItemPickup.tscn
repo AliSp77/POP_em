@@ -1,21 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxvnapglc7vqi"]
+[gd_scene load_steps=6 format=3 uid="uid://cxvnapglc7vqi"]
 
-[ext_resource type="Script" uid="uid://b7c80xlsom6wt" path="res://src/Items/ItemPickup/item_pickup.gd" id="1_v4bqk"]
-[ext_resource type="AudioStream" uid="uid://d3yqkj2toi3mw" path="res://src/Items/ItemPickup/item_pickup.wav" id="2_imm3g"]
+[ext_resource type="Script" uid="uid://b7c80xlsom6wt" path="res://Items/ItemPickup/item_pickup.gd" id="1_v4bqk"]
+[ext_resource type="AudioStream" uid="uid://d3yqkj2toi3mw" path="res://Items/ItemPickup/item_pickup.wav" id="2_imm3g"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mqsnd"]
+bounce = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v4bqk"]
 
-[node name="ItemPickup" type="Node2D" groups=["pickable"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_mqsnd"]
+
+[node name="ItemPickup" type="RigidBody2D" groups=["pickable"]]
+collision_layer = 1024
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_mqsnd")
 script = ExtResource("1_v4bqk")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 512
-collision_mask = 512
+[node name="PickArea" type="Area2D" parent="."]
+collision_layer = 1024
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickArea"]
 shape = SubResource("CircleShape2D_v4bqk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_imm3g")
+
+[node name="PhysicsCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mqsnd")
+
+[connection signal="body_entered" from="PickArea" to="." method="_on_pick_area_body_entered"]

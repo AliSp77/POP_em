@@ -8,7 +8,7 @@
 font_names = PackedStringArray("Upheaval TT (BRK)")
 
 [sub_resource type="LabelSettings" id="LabelSettings_tmki8"]
-font_size = 216
+font_size = 72
 font_color = Color(0.733333, 0, 0.407843, 1)
 
 [node name="Control" type="Control"]

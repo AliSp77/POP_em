@@ -11,6 +11,7 @@ var check_spawn_enemy: bool = false
 func _ready() -> void:
 	AudioPlayer.normal_theme()
 	WaveController.LevelChange.connect(_on_level_change)
+	PausedMenu2.PauseState.connect(_on_pause_pressed)
 	pass 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,3 +40,9 @@ func _on_level_change(value):
 	canvas_layer_2.hide()
 	await get_tree().create_timer(5).timeout
 	canvas_layer_2.show()
+
+func _on_pause_pressed(value):
+	if value:
+		canvas_layer_2.hide()
+	else:
+		canvas_layer_2.show()

@@ -1,6 +1,6 @@
 extends CanvasLayer
-class_name PauseMenu
 
+signal PauseState(bool)
 signal shown
 signal hidden
 
@@ -20,13 +20,14 @@ func _unhandled_input(event: InputEvent) -> void:
 			show_pause_menu()
 		else:
 			hide_pause_menu()
-		get_viewport().set_input_as_handled()
+		#get_viewport().set_input_as_handled()
 	pass
 
 func show_pause_menu() -> void:
 	get_tree().paused = true
 	visible = true
 	is_paused = true
+	PauseState.emit(true)
 	shown.emit()
 	pass
 	
@@ -34,6 +35,7 @@ func hide_pause_menu() -> void:
 	get_tree().paused = false
 	visible = false
 	is_paused = false
+	PauseState.emit(false)
 	hidden.emit()
 	pass
 

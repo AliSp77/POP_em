@@ -1,7 +1,7 @@
 extends GridContainer
 class_name	InventoryUI
 
-const INV_SLOT	 = preload("res://src/GUI/Inventory/inventory_slot.tscn")
+const INV_SLOT	 = preload("res://GUI/menus/Inventory/inventory_slot.tscn")
 
 @export var inventory_data: InventoryData
 var focus_index: int = 0
@@ -19,6 +19,7 @@ func clear_inventory() -> void:
 		c.queue_free()
 		
 func update_inventory(i: int = 0) -> void:
+	print(inventory_data.slots)
 	for s in inventory_data.slots:
 		var new_slot := INV_SLOT.instantiate()
 		add_child(new_slot)

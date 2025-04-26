@@ -1,12 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqi55o2ix2edh"]
+[gd_scene load_steps=2 format=3 uid="uid://cqi55o2ix2edh"]
 
 [ext_resource type="Script" uid="uid://d1m4yfw0th5yi" path="res://GUI/menus/Scripts/paused_options_menu.gd" id="2_o4qt2"]
-
-[sub_resource type="Resource" id="Resource_8fjxm"]
-metadata/__load_path__ = "res://old-menus/Arts/start_menu.tres"
-
-[sub_resource type="Resource" id="Resource_uso0p"]
-metadata/__load_path__ = "res://old-menus/Arts/Free-City-Backgrounds-Pixel-Art2.png"
 
 [node name="PausedOptions" type="Control"]
 process_mode = 3
@@ -16,7 +10,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Resource_8fjxm")
 script = ExtResource("2_o4qt2")
 
 [node name="BackGround" type="TextureRect" parent="."]
@@ -26,7 +19,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("Resource_uso0p")
 expand_mode = 1
 stretch_mode = 6
 

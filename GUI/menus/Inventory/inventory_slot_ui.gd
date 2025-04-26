@@ -44,3 +44,6 @@ func item_pressed() -> void:
 				return
 			slot_data.quantity -= 1
 			label.text = str(slot_data.quantity)
+			if slot_data.quantity <= 0:
+				slot_data.item_data = null
+				slot_data.changed.emit()

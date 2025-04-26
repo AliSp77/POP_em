@@ -5,7 +5,7 @@
 [ext_resource type="Theme" uid="uid://d2w0dv6jaikcv" path="res://GUI/start_menu.tres" id="3_6nhif"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ccer4"]
-font_size = 180
+font_size = 72
 font_color = Color(0.733333, 0, 0.407843, 1)
 
 [node name="Control" type="Control"]
