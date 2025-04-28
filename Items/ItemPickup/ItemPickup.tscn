@@ -18,6 +18,7 @@ script = ExtResource("1_v4bqk")
 
 [node name="PickArea" type="Area2D" parent="."]
 collision_layer = 1024
+collision_mask = 2048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickArea"]
 shape = SubResource("CircleShape2D_v4bqk")
@@ -30,4 +31,4 @@ stream = ExtResource("2_imm3g")
 [node name="PhysicsCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mqsnd")
 
-[connection signal="body_entered" from="PickArea" to="." method="_on_pick_area_body_entered"]
+[connection signal="area_entered" from="PickArea" to="." method="_on_pick_area_area_entered"]

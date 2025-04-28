@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtbeolgufqkru"]
+[gd_scene load_steps=15 format=3 uid="uid://dtbeolgufqkru"]
 
 [ext_resource type="Script" uid="uid://tyihd8uuw6p6" path="res://Enemy/Scripts/enemy.gd" id="1_vym13"]
 [ext_resource type="Script" uid="uid://dckpntwcw0q4p" path="res://utility/scripts/hurt_box.gd" id="2_a4yds"]
@@ -6,6 +6,8 @@
 [ext_resource type="Resource" uid="uid://dbx20qqf3u1cy" path="res://Enemy/Resources/normal_enemy.tres" id="2_e610q"]
 [ext_resource type="PackedScene" uid="uid://cp33kksvtvaf3" path="res://utility/scenes/hit_box.tscn" id="4_e610q"]
 [ext_resource type="Script" uid="uid://dhpdyhv5m2fvd" path="res://GUI/popup_display/popup_location.gd" id="5_u017r"]
+[ext_resource type="Script" uid="uid://bj5i3xd82lsw2" path="res://Enemy/Scripts/EnemyStateMachine.gd" id="7_mi5rn"]
+[ext_resource type="Script" uid="uid://dg5a07328bik8" path="res://Enemy/States/walking.gd" id="8_cu7tx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14vw6"]
 radius = 8.0
@@ -94,3 +96,9 @@ script = ExtResource("5_u017r")
 libraries = {
 &"": SubResource("AnimationLibrary_rse7d")
 }
+
+[node name="state_machine" type="Node" parent="."]
+script = ExtResource("7_mi5rn")
+
+[node name="walking" type="Node" parent="state_machine"]
+script = ExtResource("8_cu7tx")

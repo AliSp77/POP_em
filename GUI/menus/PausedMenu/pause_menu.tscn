@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cmhmo6fyaa6nw" path="res://GUI/menus/PausedMenu/items.png" id="2_ci0qu"]
 [ext_resource type="PackedScene" uid="uid://cuxbfggm0rdt" path="res://GUI/menus/Inventory/inventory_slot.tscn" id="3_i2647"]
 [ext_resource type="Script" uid="uid://d2b0k6e6kcg0q" path="res://GUI/menus/PausedMenu/inventory_UI.gd" id="3_ks2pn"]
-[ext_resource type="Resource" uid="uid://b8ja7lvmf2pe5" path="res://GUI/menus/Inventory/scripts/player_inventory.tres" id="4_bb3s2"]
+[ext_resource type="Resource" uid="uid://b8ja7lvmf2pe5" path="res://player/Resource/player_inventory.tres" id="4_bb3s2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qcor8"]
 font_size = 61

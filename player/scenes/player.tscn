@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dc7a5wixcvv4x"]
+[gd_scene load_steps=24 format=3 uid="uid://dc7a5wixcvv4x"]
 
 [ext_resource type="Script" uid="uid://baaa75gtxy0pk" path="res://player/states/player.gd" id="1_b555d"]
 [ext_resource type="Texture2D" uid="uid://wsal0kll321t" path="res://player/Sprite/asl-sheet-col.png" id="2_7yoxw"]
@@ -138,6 +138,9 @@ _data = {
 &"resting": SubResource("Animation_mfato")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mfato"]
+height = 48.0
+
 [node name="player" type="CharacterBody2D"]
 collision_mask = 540
 platform_floor_layers = 4294967041
@@ -213,6 +216,16 @@ shape = SubResource("CapsuleShape2D_omm3f")
 libraries = {
 &"": SubResource("AnimationLibrary_l7x70")
 }
+
+[node name="PickRange" type="Area2D" parent="."]
+visible = false
+collision_layer = 2048
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickRange"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_mfato")
+debug_color = Color(7.70092e-07, 0.640279, 0.3523, 0.42)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="DamageTaken" from="HurtBox" to="." method="_on_hurt_box_damage_taken"]

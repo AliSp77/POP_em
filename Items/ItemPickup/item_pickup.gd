@@ -29,7 +29,6 @@ func _update_texture():
 		sprite_2d.texture = item_data.texture
 	pass
 
-func _on_pick_area_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D:
-		if PlayerManager.INVENTORY_DATA.add_item(item_data) == true:
-			pick_up_item()
+func _on_pick_area_area_entered(area: Area2D) -> void:
+	if PlayerManager.INVENTORY_DATA.add_item(item_data) == true:
+		pick_up_item()
