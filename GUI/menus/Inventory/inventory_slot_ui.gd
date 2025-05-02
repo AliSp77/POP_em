@@ -27,13 +27,13 @@ func set_slot_data( value: SlotData )-> void:
 func focused():
 	if slot_data != null:
 		if slot_data.item_data != null:
-			PausedMenu2.update_item_description(slot_data.item_data.description)
-			PausedMenu2.update_item_label(slot_data.item_data.name)
+			PausedMenu.update_item_description(slot_data.item_data.description)
+			PausedMenu.update_item_label(slot_data.item_data.name)
 	pass
 	
 func unfocused():
-	PausedMenu2.update_item_description("")
-	PausedMenu2.update_item_label("Item Description: ")
+	PausedMenu.update_item_description("")
+	PausedMenu.update_item_label("Item Description: ")
 	pass
 
 func item_pressed() -> void:

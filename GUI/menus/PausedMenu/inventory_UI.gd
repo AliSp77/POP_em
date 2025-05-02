@@ -8,8 +8,8 @@ var focus_index: int = 0
 
 
 func _ready() -> void:
-	PausedMenu2.shown.connect(update_inventory)
-	PausedMenu2.hidden.connect(clear_inventory)
+	PausedMenu.shown.connect(update_inventory)
+	PausedMenu.hidden.connect(clear_inventory)
 	clear_inventory()
 	inventory_data.changed.connect(on_inventory_changed)
 	pass
