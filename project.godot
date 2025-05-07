@@ -23,7 +23,7 @@ AudioPlayer="*res://Globals/audio_player.tscn"
 EnemyManager="*res://Globals/EnemyManager.gd"
 PlayerStats="*res://Globals/PlayerStats.gd"
 WaveController="*res://Globals/WaveController.gd"
-PausedMenu2="*res://GUI/menus/PausedMenu/pause_menu.tscn"
+PausedMenu="*res://GUI/menus/PausedMenu/pause_menu.tscn"
 PlayerManager="*res://Globals/PlayerManager.gd"
 
 [display]

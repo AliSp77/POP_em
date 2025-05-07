@@ -8,4 +8,4 @@ func use()-> void:
 	##Effect item on player
 	print("heal")
 	#PlayerManager.PLAYER.update_hp( heal_amount )
-	PausedMenu2.play_audio(audio)
+	PausedMenu.play_audio(audio)

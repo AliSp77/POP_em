@@ -3,15 +3,6 @@
 [ext_resource type="Script" uid="uid://c54dy8wgvftqi" path="res://Items/scripts/item_data.gd" id="1_jjtkj"]
 [ext_resource type="Script" uid="uid://b7s33cw12beql" path="res://Items/ItemEffects/ItemEffect.gd" id="1_wdhtb"]
 [ext_resource type="Texture2D" uid="uid://dolsraumas2u4" path="res://Items/Sprites/items.png" id="2_wdhtb"]
-[ext_resource type="Script" uid="uid://c3fialofc5vnp" path="res://Items/ItemEffects/ItemHealEffect.gd" id="2_wlls8"]
-[ext_resource type="AudioStream" uid="uid://dwfcfha25xoac" path="res://Items/ItemEffects/hp-up.wav" id="3_6dywr"]
-
-[sub_resource type="Resource" id="Resource_msnn0"]
-script = ExtResource("2_wlls8")
-heal_amount = 1
-audio = ExtResource("3_6dywr")
-use_description = ""
-metadata/_custom_type_script = "uid://c3fialofc5vnp"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qkvu8"]
 atlas = ExtResource("2_wdhtb")
